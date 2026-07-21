@@ -1,0 +1,6 @@
+{
+  "name": "Canguru Digital",
+  "description": "Site institucional completo e de alta atitude para a Canguru Digital, agência brasileira de tráfego pago e CRM com plataforma integrada em tempo real.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
