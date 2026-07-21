@@ -42,9 +42,7 @@ export default function Contato({ navigateTo }: ContatoProps) {
       if (res.success) {
         setStatus("success");
         setFeedbackMsg(
-          res.mode === "real"
-            ? "Mensagem enviada com sucesso! Seu lead foi gravado diretamente no Supabase e seu webhook do Make disparado."
-            : "Mensagem salva localmente! Dados gravados com sucesso no localStorage. Você pode vê-los em tempo real na aba Leads da Área Controle."
+          "Mensagem enviada com sucesso! Recebemos sua solicitação e nossa equipe entrará em contato em até 24h úteis para apresentar o diagnóstico."
         );
         // Limpa formulário
         setNome("");

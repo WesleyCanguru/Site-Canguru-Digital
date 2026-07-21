@@ -4,6 +4,8 @@
  */
 
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import Lenis from "lenis";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -41,6 +43,26 @@ const parsePathToRoute = (path: string): Route => {
 
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState<Route>("/");
+
+  // Inicializa Lenis Smooth Scroll
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    const rafId = requestAnimationFrame(raf);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+    };
+  }, []);
 
   // Inicializa a rota baseada na URL atual do navegador no primeiro carregamento
   useEffect(() => {
@@ -272,9 +294,19 @@ export default function App() {
       {/* Navbar global */}
       <Navbar currentRoute={currentRoute} navigateTo={navigateTo} />
 
-      {/* Container de conteúdo com controle de margem para compensar a navbar fixada */}
-      <main className="flex-grow">
-        {renderPage()}
+      {/* Container de conteúdo com transição suave entre páginas */}
+      <main className="flex-grow overflow-x-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentRoute}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.35, ease: [0.215, 0.61, 0.355, 1] }}
+          >
+            {renderPage()}
+          </motion.div>
+        </AnimatePresence>
       </main>
 
       {/* Footer global com captura de newsletter integrada */}
