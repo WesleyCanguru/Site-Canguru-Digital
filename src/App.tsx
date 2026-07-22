@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "motion/react";
 import Lenis from "lenis";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import FloatingWhatsapp from "./components/FloatingWhatsapp";
 
 // Importações das Páginas
 import Home from "./pages/Home";
@@ -21,19 +22,21 @@ type Route = "/" | "/servicos/" | "/sobre-nos/" | "/contato/" | "/blog/" | "/blo
 
 // Utilitário para mapear e normalizar o path do navegador para uma rota conhecida da agência
 const parsePathToRoute = (path: string): Route => {
-  // Remove barras duplicadas ou finais para normalização de string
-  const cleanPath = path.trim().replace(/\/+$/, "").toLowerCase();
+  // Remove querystrings e hashes
+  const urlWithoutQuery = path.split("?")[0].split("#")[0];
+  // Normaliza string removendo barras duplicadas ou finais
+  const cleanPath = urlWithoutQuery.trim().toLowerCase().replace(/\/+$/, "");
 
   if (cleanPath === "" || cleanPath === "/" || cleanPath === "/index.html") return "/";
-  if (cleanPath === "/servicos") return "/servicos/";
-  if (cleanPath === "/sobre-nos" || cleanPath === "/sobre") return "/sobre-nos/";
-  if (cleanPath === "/contato") return "/contato/";
-  if (cleanPath === "/blog") return "/blog/";
+  if (cleanPath === "/servicos" || cleanPath === "/servicos/") return "/servicos/";
+  if (cleanPath === "/sobre-nos" || cleanPath === "/sobre" || cleanPath === "/sobre-nos/") return "/sobre-nos/";
+  if (cleanPath === "/contato" || cleanPath === "/contato/") return "/contato/";
+  if (cleanPath === "/blog" || cleanPath === "/blog/") return "/blog/";
   if (cleanPath === "/blog/quanto-investir-em-anuncios") return "/blog/quanto-investir-em-anuncios/";
 
-  // Fallback caso a rota não coincida, mantendo o sitemap amigável
+  // Fallback seguro caso a rota seja um prefixo
   if (cleanPath.startsWith("/servicos")) return "/servicos/";
-  if (cleanPath.startsWith("/sobre-nos")) return "/sobre-nos/";
+  if (cleanPath.startsWith("/sobre")) return "/sobre-nos/";
   if (cleanPath.startsWith("/contato")) return "/contato/";
   if (cleanPath.startsWith("/blog/quanto-investir-em-anuncios")) return "/blog/quanto-investir-em-anuncios/";
   if (cleanPath.startsWith("/blog")) return "/blog/";
@@ -68,6 +71,11 @@ export default function App() {
   useEffect(() => {
     const initialRoute = parsePathToRoute(window.location.pathname);
     setCurrentRoute(initialRoute);
+
+    // Garante que se o usuário acessar /contato sem barra, a URL seja normalizada de forma transparente
+    if (window.location.pathname !== initialRoute && window.location.pathname !== "/") {
+      window.history.replaceState({}, "", initialRoute);
+    }
 
     // Escuta eventos de "Voltar" e "Avançar" do navegador para roteamento orgânico
     const handlePopState = () => {
@@ -311,6 +319,9 @@ export default function App() {
 
       {/* Footer global com captura de newsletter integrada */}
       <Footer navigateTo={navigateTo} />
+
+      {/* Botão flutuante fixo de WhatsApp */}
+      <FloatingWhatsapp />
     </div>
   );
 }

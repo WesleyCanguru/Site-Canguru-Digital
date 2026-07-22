@@ -85,33 +85,28 @@ export default function Navbar({ currentRoute, navigateTo }: NavbarProps) {
 
             <div className="h-5 w-[1px] bg-white/10" />
 
-            {/* Link da Plataforma Controle */}
+            {/* Link do Formulário de Diagnóstico */}
             <button
               onClick={() => {
-                // Rola suavemente até o elemento se estiver na home, ou navega até lá
                 if (currentRoute === "/") {
-                  const el = document.getElementById("plataforma-controle");
+                  const el = document.getElementById("diagnostico");
                   if (el) {
-                    el.scrollIntoView({ behavior: "smooth", block: "center" });
+                    el.scrollIntoView({ behavior: "smooth", block: "start" });
                   } else {
                     handleLinkClick("/contato/");
                   }
                 } else {
-                  handleLinkClick("/");
-                  setTimeout(() => {
-                    const el = document.getElementById("plataforma-controle");
-                    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-                  }, 300);
+                  handleLinkClick("/contato/");
                 }
               }}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0f1115] border border-white/10 hover:border-[#20364d] hover:bg-white/5 text-white transition-all text-xs font-bold shadow-md cursor-pointer group"
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white hover:bg-[#f4f3ef] text-[#0f1115] transition-all text-xs font-black uppercase tracking-wider shadow-md cursor-pointer group"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              Área Controle
-              <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-white transition-colors" />
+              Diagnóstico Grátis
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#0f1115]" />
             </button>
           </div>
 
@@ -153,19 +148,21 @@ export default function Navbar({ currentRoute, navigateTo }: NavbarProps) {
               <button
                 onClick={() => {
                   setIsOpen(false);
-                  handleLinkClick("/");
-                  setTimeout(() => {
-                    const el = document.getElementById("plataforma-controle");
-                    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-                  }, 350);
+                  if (currentRoute === "/") {
+                    const el = document.getElementById("diagnostico");
+                    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                    else handleLinkClick("/contato/");
+                  } else {
+                    handleLinkClick("/contato/");
+                  }
                 }}
-                className="w-full flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-slate-900 border border-slate-800 text-white text-xs font-bold uppercase tracking-widest"
+                className="w-full flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-white text-[#0f1115] text-xs font-black uppercase tracking-widest shadow-lg"
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                Acessar Área Controle
+                Solicitar Diagnóstico Grátis
               </button>
             </div>
           </div>

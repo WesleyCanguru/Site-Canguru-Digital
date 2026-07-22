@@ -79,35 +79,37 @@ export default function Blog({ navigateTo }: BlogProps) {
   return (
     <div className="bg-[#0f1115] text-white pt-20">
       
-      {/* HERO BLOG */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 border-b border-white/10 relative overflow-hidden text-center">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#20364d]/10 rounded-full blur-3xl -z-10" />
+      {/* HERO BLOG - ALINHADO À ESQUERDA E FULL-BLEED */}
+      <section className="w-full py-24 px-6 sm:px-12 lg:px-20 border-b border-white/10 relative overflow-hidden bg-[#0c0e12]">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#20364d]/15 rounded-full blur-[140px] -z-10" />
         
-        <div className="max-w-4xl mx-auto space-y-6">
-          <span className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#20364d] block">Canguru Analítica</span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter leading-none text-white">
+        <div className="w-full max-w-5xl space-y-6">
+          <span className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#20364d] block">
+            Canguru Analítica
+          </span>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.93] text-white">
             Estratégia sem rodeios técnicos.
           </h1>
-          <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
             Nós documentamos o que realmente funciona em tráfego pago, CRM de vendas e automações comerciais de alta performance. Sem teorias de livro, apenas dados de campo de batalha.
           </p>
 
           {/* Inscrição Rápida de Newsletter */}
-          <div className="max-w-md mx-auto pt-4">
+          <div className="max-w-md pt-2">
             <form onSubmit={handleSubscribe} className="space-y-2">
-              <div className="relative flex items-center bg-[#111318] p-1 rounded-xl border border-white/10">
+              <div className="relative flex items-center bg-[#111318] p-1.5 rounded-xl border border-white/15 shadow-xl">
                 <input
                   type="email"
                   required
                   placeholder="Cadastre seu e-mail estratégico"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-transparent text-xs px-4 py-2.5 text-white placeholder-slate-600 focus:outline-none"
+                  className="w-full bg-transparent text-xs px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none font-medium"
                 />
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="px-4 py-2 bg-white hover:bg-[#f4f3ef] text-[#0f1115] text-xs font-black uppercase tracking-widest rounded-lg transition-all"
+                  className="px-5 py-2.5 bg-white hover:bg-[#f4f3ef] text-[#0f1115] text-xs font-black uppercase tracking-widest rounded-lg transition-all shrink-0 cursor-pointer"
                 >
                   Assinar
                 </button>
@@ -116,14 +118,13 @@ export default function Blog({ navigateTo }: BlogProps) {
               {status !== "idle" && (
                 <div className={`p-3 rounded-lg border text-left text-xs flex gap-2 items-start animate-fade-in ${
                   status === "success"
-                    ? "bg-emerald-500/5 border-emerald-500/20 text-emerald-400"
+                    ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-300"
                     : status === "error"
-                    ? "bg-rose-500/5 border-rose-500/20 text-rose-400"
-                    : "bg-[#20364d]/10 border-[#20364d]/20 text-white"
+                    ? "bg-rose-500/10 border-rose-500/30 text-rose-300"
+                    : "bg-white/5 border-white/10 text-slate-300"
                 }`}>
-                  {status === "success" && <Check className="w-4 h-4 shrink-0 mt-0.5" />}
-                  {status === "error" && <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />}
-                  {status === "loading" && <Database className="w-4 h-4 animate-spin shrink-0" />}
+                  {status === "success" && <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />}
+                  {status === "error" && <AlertCircle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />}
                   <span>{feedbackMsg}</span>
                 </div>
               )}
