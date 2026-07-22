@@ -47,7 +47,7 @@ export default function Home({ navigateTo }: HomeProps) {
       if (res.success) {
         setStatus("success");
         setFeedbackMsg(
-          "Diagnóstico solicitado com sucesso! Nossa equipe analisará seu cenário e entrará em contato em até 24h úteis."
+          "Recebemos seu diagnóstico, retornaremos em até 24h úteis"
         );
         setNome("");
         setEmail("");
@@ -56,7 +56,7 @@ export default function Home({ navigateTo }: HomeProps) {
         setMensagem("");
       } else {
         setStatus("error");
-        setFeedbackMsg(res.error || "Erro ao processar envio do formulário.");
+        setFeedbackMsg(res.error || "Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente ou entre em contato pelo WhatsApp.");
       }
     } catch {
       setStatus("error");

@@ -94,51 +94,54 @@ export async function addLead(lead: Omit<Lead, "criado_em">): Promise<{ success:
   const criado_em = new Date().toISOString();
   const fullLead: Lead = { ...lead, criado_em };
 
-  // 1. Salvar localmente primeiro para garantir exibição imediata na Área de Controle
+  // 1. Salvar localmente para garantir exibição imediata na Área de Controle
   const currentLeads = getLeads();
   const updatedLeads = [fullLead, ...currentLeads];
   localStorage.setItem(LOCAL_LEADS_KEY, JSON.stringify(updatedLeads));
 
-  const config = getSupabaseConfig();
-  let mode: "real" | "local" = "local";
+  let success = false;
   let errorMsg: string | undefined = undefined;
 
-  // 2. Tentar salvar no Supabase se configurado
-  if (config.supabaseUrl && config.supabaseAnonKey) {
-    try {
-      // Normaliza URL removendo barra final
-      const baseUrl = config.supabaseUrl.replace(/\/$/, "");
-      const response = await fetch(`${baseUrl}/rest/v1/leads`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "apikey": config.supabaseAnonKey,
-          "Authorization": `Bearer ${config.supabaseAnonKey}`,
-          "Prefer": "return=minimal"
-        },
-        body: JSON.stringify(fullLead)
-      });
+  // 2. Enviar formulário de diagnóstico para o Web3Forms via POST JSON
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        access_key: "77dccc98-44c1-497e-9852-36f1e2609c6e",
+        subject: "Novo lead - Diagnóstico Canguru Digital",
+        from_name: "Site Canguru Digital",
+        nome: lead.nome,
+        email: lead.email,
+        whatsapp: lead.whatsapp,
+        empresa: lead.empresa,
+        mensagem: lead.mensagem
+      })
+    });
 
-      if (!response.ok) {
-        const errText = await response.text();
-        console.error("Erro no Supabase Leads:", errText);
-        errorMsg = `Supabase retornou status ${response.status}: ${errText}`;
-      } else {
-        mode = "real";
-      }
-    } catch (e: any) {
-      console.error("Falha ao enviar para Supabase:", e);
-      errorMsg = e.message || "Erro de conexão com o Supabase";
+    const data = await response.json();
+    if (response.ok && data.success) {
+      success = true;
+    } else {
+      console.error("Erro no Web3Forms:", data);
+      errorMsg = data.message || "Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente.";
     }
+  } catch (e: any) {
+    console.error("Falha ao enviar para o Web3Forms:", e);
+    errorMsg = "Ocorreu uma falha de conexão. Verifique sua internet ou fale pelo WhatsApp.";
   }
 
-  // 3. Tentar disparar Webhook do Make se configurado
+  // 3. Opcional: disparar Webhook do Make se configurado na Área de Controle
+  const config = getSupabaseConfig();
   if (config.makeWebhookLeads) {
     try {
       await fetch(config.makeWebhookLeads, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        mode: "no-cors", // Evita problemas de CORS no Make
+        mode: "no-cors",
         body: JSON.stringify(fullLead)
       });
     } catch (e) {
@@ -146,7 +149,7 @@ export async function addLead(lead: Omit<Lead, "criado_em">): Promise<{ success:
     }
   }
 
-  return { success: !errorMsg, mode, error: errorMsg };
+  return { success, mode: success ? "real" : "local", error: errorMsg };
 }
 
 export async function addNewsletter(email: string): Promise<{ success: boolean; mode: "real" | "local"; error?: string }> {
@@ -158,51 +161,30 @@ export async function addNewsletter(email: string): Promise<{ success: boolean; 
   const updatedNews = [entry, ...currentNews];
   localStorage.setItem(LOCAL_NEWS_KEY, JSON.stringify(updatedNews));
 
-  const config = getSupabaseConfig();
-  let mode: "real" | "local" = "local";
+  let success = false;
   let errorMsg: string | undefined = undefined;
 
-  // 2. Tentar salvar no Supabase se configurado
-  if (config.supabaseUrl && config.supabaseAnonKey) {
-    try {
-      const baseUrl = config.supabaseUrl.replace(/\/$/, "");
-      const response = await fetch(`${baseUrl}/rest/v1/newsletter`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "apikey": config.supabaseAnonKey,
-          "Authorization": `Bearer ${config.supabaseAnonKey}`,
-          "Prefer": "return=minimal"
-        },
-        body: JSON.stringify(entry)
-      });
+  // 2. Chamar endpoint serverless /api/newsletter que se conecta ao Brevo
+  try {
+    const response = await fetch("/api/newsletter", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email })
+    });
 
-      if (!response.ok) {
-        const errText = await response.text();
-        console.error("Erro no Supabase Newsletter:", errText);
-        errorMsg = `Supabase retornou status ${response.status}: ${errText}`;
-      } else {
-        mode = "real";
-      }
-    } catch (e: any) {
-      console.error("Falha ao enviar newsletter para Supabase:", e);
-      errorMsg = e.message || "Erro de conexão com o Supabase";
+    const data = await response.json().catch(() => ({}));
+
+    if (response.ok && (data.success || response.status === 200)) {
+      success = true;
+    } else {
+      errorMsg = data.error || "Erro ao processar inscrição no serviço de e-mail.";
     }
+  } catch (e: any) {
+    console.error("Falha na chamada ao endpoint /api/newsletter:", e);
+    errorMsg = "Ocorreu um erro ao conectar com o servidor da newsletter.";
   }
 
-  // 3. Tentar disparar Webhook do Make se configurado
-  if (config.makeWebhookNewsletter) {
-    try {
-      await fetch(config.makeWebhookNewsletter, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        mode: "no-cors",
-        body: JSON.stringify(entry)
-      });
-    } catch (e) {
-      console.error("Falha ao disparar webhook de newsletter do Make:", e);
-    }
-  }
-
-  return { success: !errorMsg, mode, error: errorMsg };
+  return { success, mode: success ? "real" : "local", error: errorMsg };
 }

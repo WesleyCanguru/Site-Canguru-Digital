@@ -25,15 +25,11 @@ export default function Footer({ navigateTo }: FooterProps) {
       const res = await addNewsletter(email);
       if (res.success) {
         setStatus("success");
-        setFeedbackMsg(
-          res.mode === "real" 
-            ? "Conectado! Seu e-mail foi salvo diretamente no Supabase e disparado para o Make." 
-            : "Salvo localmente! Seus dados foram guardados no localStorage e estão visíveis na Área Controle."
-        );
+        setFeedbackMsg("Inscrição confirmada!");
         setEmail("");
       } else {
         setStatus("error");
-        setFeedbackMsg(res.error || "Erro ao processar inscrição.");
+        setFeedbackMsg(res.error || "E-mail inválido ou falha no cadastro.");
       }
     } catch {
       setStatus("error");

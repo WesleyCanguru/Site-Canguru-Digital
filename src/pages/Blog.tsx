@@ -40,15 +40,11 @@ export default function Blog({ navigateTo }: BlogProps) {
       const res = await addNewsletter(email);
       if (res.success) {
         setStatus("success");
-        setFeedbackMsg(
-          res.mode === "real"
-            ? "Assinado! Seu e-mail foi gravado com sucesso."
-            : "Assinado localmente! E-mail salvo no localStorage e visível na Área Controle."
-        );
+        setFeedbackMsg("Inscrição confirmada!");
         setEmail("");
       } else {
         setStatus("error");
-        setFeedbackMsg(res.error || "Erro no envio.");
+        setFeedbackMsg(res.error || "E-mail inválido ou falha no cadastro.");
       }
     } catch {
       setStatus("error");

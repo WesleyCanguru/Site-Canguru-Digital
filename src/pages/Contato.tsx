@@ -42,7 +42,7 @@ export default function Contato({ navigateTo }: ContatoProps) {
       if (res.success) {
         setStatus("success");
         setFeedbackMsg(
-          "Mensagem enviada com sucesso! Recebemos sua solicitação e nossa equipe entrará em contato em até 24h úteis para apresentar o diagnóstico."
+          "Recebemos seu diagnóstico, retornaremos em até 24h úteis"
         );
         // Limpa formulário
         setNome("");
@@ -52,7 +52,7 @@ export default function Contato({ navigateTo }: ContatoProps) {
         setMensagem("");
       } else {
         setStatus("error");
-        setFeedbackMsg(res.error || "Erro ao processar envio do formulário.");
+        setFeedbackMsg(res.error || "Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente ou entre em contato pelo WhatsApp.");
       }
     } catch {
       setStatus("error");
