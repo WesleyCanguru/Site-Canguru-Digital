@@ -25,7 +25,9 @@ export default function Footer({ navigateTo }: FooterProps) {
       const res = await addNewsletter(email);
       if (res.success) {
         setStatus("success");
-        setFeedbackMsg("Inscrição confirmada!");
+        setFeedbackMsg(
+          "Inscrição confirmada! Agora você recebe em primeira mão as análises e novidades de tráfego pago, automação e tecnologia da Canguru Digital."
+        );
         setEmail("");
       } else {
         setStatus("error");
