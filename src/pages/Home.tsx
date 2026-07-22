@@ -253,8 +253,14 @@ export default function Home({ navigateTo }: HomeProps) {
       </section>
 
       {/* SEÇÃO NÚMEROS E ESTATÍSTICAS - COMPACTA E RESPONSIVA */}
-      <section className="w-full border-b border-white/10 bg-[#20364d]/10 py-8 sm:py-10 px-4 sm:px-8 lg:px-16">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+      <section className="w-full border-b border-white/10 bg-[#20364d]/10 py-8 sm:py-10 px-4 sm:px-8 lg:px-16 overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6 }}
+          className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
+        >
           {stats.map((stat, idx) => (
             <div key={idx} className="border-l-2 border-[#20364d] pl-3 sm:pl-4 py-0.5 space-y-1">
               <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight block leading-none">
@@ -270,7 +276,7 @@ export default function Home({ navigateTo }: HomeProps) {
               </span>
             </div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* MARQUEE CONTINUO */}
@@ -308,7 +314,13 @@ export default function Home({ navigateTo }: HomeProps) {
 
       {/* SEÇÃO COMPROMISSOS COM O PADRÃO PAPER CARD (#f4f3ef) */}
       <section className="w-full py-24 sm:py-28 px-6 sm:px-12 lg:px-20 border-b border-white/10 bg-[#0f1115]">
-        <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <motion.div 
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start"
+        >
           
           {/* Lado Esquerdo: Texto Fixo no Scroll */}
           <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-8">
@@ -342,7 +354,13 @@ export default function Home({ navigateTo }: HomeProps) {
 
           {/* Lado Direito: PAPER CARD DESTACADO (#f4f3ef) */}
           <div className="lg:col-span-7">
-            <div className="bg-[#f4f3ef] text-[#0f1115] p-8 sm:p-10 rounded-3xl border border-white/20 shadow-2xl space-y-8">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.98, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-[#f4f3ef] text-[#0f1115] p-8 sm:p-10 rounded-3xl border border-white/20 shadow-2xl space-y-8 transition-shadow hover:shadow-sky-900/10"
+            >
               <div className="border-b border-slate-300/80 pb-6 space-y-2">
                 <span className="text-[10px] font-mono font-black uppercase tracking-widest text-[#20364d] bg-[#20364d]/10 px-3 py-1 rounded-full inline-block">
                   Canguru Operating Standards
@@ -377,15 +395,21 @@ export default function Home({ navigateTo }: HomeProps) {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
 
-        </div>
+        </motion.div>
       </section>
 
       {/* SEÇÃO FAQ COM PAPER CARD (#f4f3ef) EM LAYOUT ASIMÉTRICO */}
       <section className="py-24 px-6 sm:px-12 lg:px-20 bg-[#0c0e12] border-b border-white/10">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <motion.div 
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7 }}
+          className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start"
+        >
           
           {/* Lado Esquerdo FAQ: Título e Suporte */}
           <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-28">
@@ -412,7 +436,13 @@ export default function Home({ navigateTo }: HomeProps) {
 
           {/* Lado Direito FAQ: PAPER CARD DESTACADO (#f4f3ef) */}
           <div className="lg:col-span-7">
-            <div className="bg-[#f4f3ef] text-[#0f1115] p-6 sm:p-8 rounded-3xl border border-white/20 shadow-2xl space-y-4">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.98, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-[#f4f3ef] text-[#0f1115] p-6 sm:p-8 rounded-3xl border border-white/20 shadow-2xl space-y-4"
+            >
               <h3 className="text-lg font-black uppercase tracking-wider text-[#0f1115] border-b border-slate-300/80 pb-4">
                 Dúvidas Operacionais & Estratégicas
               </h3>
@@ -448,17 +478,23 @@ export default function Home({ navigateTo }: HomeProps) {
                   );
                 })}
               </div>
-            </div>
+            </motion.div>
           </div>
 
-        </div>
+        </motion.div>
       </section>
 
       {/* FORMULÁRIO "DIAGNÓSTICO SOB MEDIDA" NO FINAL DA HOME (#diagnostico) */}
       <section id="diagnostico" className="py-24 px-6 sm:px-12 lg:px-20 relative overflow-hidden bg-[#0f1115] border-b border-white/10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#20364d]/15 rounded-full blur-[140px] -z-10" />
         
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7 }}
+          className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
+        >
           
           {/* Lado Esquerdo: Chamada e Garantias */}
           <div className="lg:col-span-5 space-y-6">
@@ -498,7 +534,13 @@ export default function Home({ navigateTo }: HomeProps) {
 
           {/* Lado Direito: PAPER CARD DO FORMULÁRIO (#f4f3ef) */}
           <div className="lg:col-span-7">
-            <div className="bg-[#f4f3ef] text-[#0f1115] p-8 sm:p-10 rounded-3xl border border-white/20 shadow-2xl space-y-6">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.98, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-[#f4f3ef] text-[#0f1115] p-8 sm:p-10 rounded-3xl border border-white/20 shadow-2xl space-y-6"
+            >
               
               <div className="space-y-2 border-b border-slate-300/80 pb-4">
                 <h3 className="text-2xl font-black text-[#0f1115] tracking-tight">
@@ -614,10 +656,10 @@ export default function Home({ navigateTo }: HomeProps) {
                   )}
                 </button>
               </form>
-            </div>
+            </motion.div>
           </div>
 
-        </div>
+        </motion.div>
       </section>
 
     </div>

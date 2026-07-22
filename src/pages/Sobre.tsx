@@ -1,3 +1,10 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import React from "react";
+import { motion } from "motion/react";
 import TiltCard from "../components/TiltCard";
 import { MessageSquare, Calendar, Award, ShieldCheck } from "lucide-react";
 
@@ -17,11 +24,16 @@ export default function Sobre({ navigateTo }: SobreProps) {
   return (
     <div className="bg-[#0f1115] text-white pt-20 overflow-x-hidden">
       
-      {/* HERO SOBRE - FULL-BLEED */}
+      {/* HERO SOBRE - FULL-BLEED COM ANIMACAO SUAVE */}
       <section className="w-full py-24 px-6 sm:px-12 lg:px-20 border-b border-white/10 relative overflow-hidden bg-[#0c0e12]">
         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#20364d]/15 rounded-full blur-[140px] -z-10" />
         
-        <div className="w-full max-w-5xl space-y-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full max-w-5xl space-y-6"
+        >
           <span className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#20364d] block">
             Nossa História & Propósito
           </span>
@@ -31,12 +43,18 @@ export default function Sobre({ navigateTo }: SobreProps) {
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
             Nascemos em 2018 para combater a falta de clareza, os relatórios confusos e a lentidão que sufocam a relação entre agências tradicionais e empresas brasileiras.
           </p>
-        </div>
+        </motion.div>
       </section>
 
       {/* SEÇÃO HISTÓRIA */}
       <section className="w-full py-24 px-6 sm:px-12 lg:px-20 border-b border-white/10 bg-[#0f1115]">
-        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7 }}
+          className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
+        >
           
           {/* Lado Esquerdo: Textos de História */}
           <div className="lg:col-span-7 space-y-6">
@@ -91,12 +109,18 @@ export default function Sobre({ navigateTo }: SobreProps) {
             </div>
           </div>
 
-        </div>
+        </motion.div>
       </section>
 
       {/* SEÇÃO QUEM TOCA A OPERAÇÃO */}
       <section className="w-full py-24 px-6 sm:px-12 lg:px-20 border-b border-white/10 bg-[#0c0e12]">
-        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7 }}
+          className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
+        >
           
           {/* Lado Esquerdo: Foto do Fundador */}
           <div className="lg:col-span-5 relative flex justify-center lg:order-2">
@@ -136,12 +160,18 @@ export default function Sobre({ navigateTo }: SobreProps) {
             </div>
           </div>
 
-        </div>
+        </motion.div>
       </section>
 
       {/* SEÇÃO PRINCÍPIOS RESUMIDOS */}
       <section className="w-full py-24 px-6 sm:px-12 lg:px-20 bg-[#0f1115]">
-        <div className="w-full space-y-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7 }}
+          className="w-full space-y-12"
+        >
           
           <div className="text-center space-y-3">
             <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#20364d] block">
@@ -167,14 +197,20 @@ export default function Sobre({ navigateTo }: SobreProps) {
             ))}
           </div>
 
-        </div>
+        </motion.div>
       </section>
 
       {/* CTA SOBRE */}
       <section className="w-full py-28 px-6 sm:px-12 lg:px-20 text-center relative overflow-hidden bg-[#111318] border-t border-white/10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#20364d]/15 rounded-full blur-[120px] -z-10" />
         
-        <div className="max-w-4xl mx-auto space-y-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7 }}
+          className="max-w-4xl mx-auto space-y-8"
+        >
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tighter leading-none text-white max-w-2xl mx-auto">
             Quer ver como funciona na prática?
           </h2>
@@ -196,7 +232,7 @@ export default function Sobre({ navigateTo }: SobreProps) {
               </a>
             </TiltCard>
           </div>
-        </div>
+        </motion.div>
       </section>
 
     </div>

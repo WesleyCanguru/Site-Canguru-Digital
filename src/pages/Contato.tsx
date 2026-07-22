@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from "react";
+import { motion } from "motion/react";
 import { addLead } from "../lib/database";
 import { 
   MessageSquare, 
@@ -14,7 +15,6 @@ import {
   Phone, 
   MapPin, 
   ArrowUpRight, 
-  Database,
   RefreshCw
 } from "lucide-react";
 
@@ -72,13 +72,18 @@ export default function Contato({ navigateTo }: ContatoProps) {
   ];
 
   return (
-    <div className="bg-[#0f1115] text-white pt-20">
+    <div className="bg-[#0f1115] text-white pt-20 overflow-x-hidden">
       
       {/* HERO CONTATO */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 border-b border-white/10 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#20364d]/10 rounded-full blur-3xl -z-10" />
         
-        <div className="max-w-4xl mx-auto text-center space-y-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-4xl mx-auto text-center space-y-6"
+        >
           <span className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#20364d] block">Fale com a agência</span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter leading-none text-white">
             Vamos conversar sobre o seu negócio.
@@ -86,12 +91,18 @@ export default function Contato({ navigateTo }: ContatoProps) {
           <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
             Seja para tirar dúvidas, solicitar um diagnóstico completo de tráfego pago ou contratar nossa operação, nossa equipe está pronta para te atender de forma direta e sem burocracia.
           </p>
-        </div>
+        </motion.div>
       </section>
 
       {/* SEÇÃO PRINCIPAL DE CONTATO */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <motion.div 
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7 }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start"
+        >
           
           {/* Lado Esquerdo: Informações, WhatsApp e Foto do Fundador */}
           <div className="lg:col-span-5 space-y-8">
@@ -175,7 +186,13 @@ export default function Contato({ navigateTo }: ContatoProps) {
 
           {/* Lado Direito: Formulário com fundo "Paper" claro #f4f3ef para respiro visual contrastante */}
           <div className="lg:col-span-7">
-            <div className="bg-[#f4f3ef] text-[#0f1115] p-8 md:p-10 rounded-2xl shadow-2xl space-y-6 border border-slate-300">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.98, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-[#f4f3ef] text-[#0f1115] p-8 md:p-10 rounded-2xl shadow-2xl space-y-6 border border-slate-300"
+            >
               
               <div>
                 <span className="text-[9px] font-extrabold uppercase tracking-[0.2em] text-slate-500 block mb-1">Passo Inicial</span>
@@ -279,10 +296,10 @@ export default function Contato({ navigateTo }: ContatoProps) {
 
               </form>
 
-            </div>
+            </motion.div>
           </div>
 
-        </div>
+        </motion.div>
       </section>
 
     </div>

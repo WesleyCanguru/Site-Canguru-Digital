@@ -233,22 +233,24 @@ export default function EditorialServices({ navigateTo }: EditorialServicesProps
                 {/* Degradê para legibilidade do selo do serviço */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0f1115] via-[#0f1115]/30 to-transparent" />
 
-                {/* Card de Informação sobreposto na imagem */}
-                <div className="absolute bottom-6 left-6 right-6 p-5 bg-[#0f1115]/90 border border-white/15 rounded-xl backdrop-blur-md space-y-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono font-black uppercase tracking-widest text-[#20364d] px-2 py-0.5 rounded bg-[#20364d]/10 border border-[#20364d]/30">
-                      Serviço {activeService.number}
-                    </span>
-                    <span className="text-[10px] font-black uppercase tracking-wider text-slate-400">
-                      Canguru Digital
-                    </span>
+                {/* Card de Apoio Visual sobreposto na imagem */}
+                <div className="absolute bottom-6 left-6 right-6 p-4 bg-[#0f1115]/85 border border-white/15 rounded-xl backdrop-blur-md flex items-center justify-between gap-3 shadow-xl">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-lg bg-[#20364d]/30 border border-[#20364d] flex items-center justify-center text-sky-300 shrink-0">
+                      {activeService.icon}
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-mono font-black uppercase tracking-widest text-sky-300 block">
+                        Serviço {activeService.number}
+                      </span>
+                      <h4 className="text-xs sm:text-sm font-black text-white leading-tight">
+                        {activeService.shortTitle}
+                      </h4>
+                    </div>
                   </div>
-                  <h4 className="text-base font-black text-white leading-tight">
-                    {activeService.shortTitle}
-                  </h4>
-                  <p className="text-xs text-slate-400 line-clamp-2">
-                    {activeService.description}
-                  </p>
+                  <div className="hidden sm:flex items-center gap-1 text-[10px] font-mono uppercase text-slate-400 font-bold">
+                    <span>Canguru</span>
+                  </div>
                 </div>
               </motion.div>
             </AnimatePresence>
