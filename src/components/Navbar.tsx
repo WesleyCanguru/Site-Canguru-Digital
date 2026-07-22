@@ -18,8 +18,8 @@ export default function Navbar({ currentRoute, navigateTo }: NavbarProps) {
     { label: "Home", path: "/" },
     { label: "Serviços", path: "/servicos/" },
     { label: "Sobre Nós", path: "/sobre-nos/" },
-    { label: "Blog", path: "/blog/" },
     { label: "Contato", path: "/contato/" },
+    { label: "Blog", path: "/blog/" },
   ];
 
   const handleLinkClick = (path: string) => {

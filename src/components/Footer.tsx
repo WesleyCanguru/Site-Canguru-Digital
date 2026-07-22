@@ -113,10 +113,10 @@ export default function Footer({ navigateTo }: FooterProps) {
                 <button onClick={() => handleLinkClick("/sobre-nos/")} className="hover:text-white cursor-pointer transition-colors">Sobre Nós</button>
               </li>
               <li>
-                <button onClick={() => handleLinkClick("/blog/")} className="hover:text-white cursor-pointer transition-colors">Blog</button>
+                <button onClick={() => handleLinkClick("/contato/")} className="hover:text-white cursor-pointer transition-colors">Contato</button>
               </li>
               <li>
-                <button onClick={() => handleLinkClick("/contato/")} className="hover:text-white cursor-pointer transition-colors">Contato</button>
+                <button onClick={() => handleLinkClick("/blog/")} className="hover:text-white cursor-pointer transition-colors">Blog</button>
               </li>
             </ul>
           </div>

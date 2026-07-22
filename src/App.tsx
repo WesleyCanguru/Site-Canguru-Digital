@@ -17,8 +17,9 @@ import Sobre from "./pages/Sobre";
 import Contato from "./pages/Contato";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import { getPostBySlug } from "./data/blogPosts";
 
-type Route = "/" | "/servicos/" | "/sobre-nos/" | "/contato/" | "/blog/" | "/blog/quanto-investir-em-anuncios/";
+type Route = string;
 
 // Utilitário para mapear e normalizar o path do navegador para uma rota conhecida da agência
 const parsePathToRoute = (path: string): Route => {
@@ -32,14 +33,20 @@ const parsePathToRoute = (path: string): Route => {
   if (cleanPath === "/sobre-nos" || cleanPath === "/sobre" || cleanPath === "/sobre-nos/") return "/sobre-nos/";
   if (cleanPath === "/contato" || cleanPath === "/contato/") return "/contato/";
   if (cleanPath === "/blog" || cleanPath === "/blog/") return "/blog/";
-  if (cleanPath === "/blog/quanto-investir-em-anuncios") return "/blog/quanto-investir-em-anuncios/";
+
+  // Suporte dinâmico a qualquer post do blog (/blog/slug ou /blog/slug/)
+  if (cleanPath.startsWith("/blog/")) {
+    const slug = cleanPath.replace(/^\/blog\//, "").trim();
+    if (slug) {
+      return `/blog/${slug}/`;
+    }
+    return "/blog/";
+  }
 
   // Fallback seguro caso a rota seja um prefixo
   if (cleanPath.startsWith("/servicos")) return "/servicos/";
   if (cleanPath.startsWith("/sobre")) return "/sobre-nos/";
   if (cleanPath.startsWith("/contato")) return "/contato/";
-  if (cleanPath.startsWith("/blog/quanto-investir-em-anuncios")) return "/blog/quanto-investir-em-anuncios/";
-  if (cleanPath.startsWith("/blog")) return "/blog/";
 
   return "/";
 };
@@ -204,37 +211,43 @@ export default function App() {
         url = "https://cangurudigital.com.br/blog/";
         type = "blog";
         break;
-      case "/blog/quanto-investir-em-anuncios/":
-        title = "Quanto Investir em Anúncios no Instagram e Google em 2026? | Blog";
-        desc = "Descubra o orçamento mínimo exigido, nossas recomendações reais de investimento de entrada e por que orçamentos muito baixos sufocam seus resultados nas ferramentas.";
-        url = "https://cangurudigital.com.br/blog/quanto-investir-em-anuncios/";
-        type = "article";
-        jsonLd = {
-          "@context": "https://schema.org",
-          "@type": "Article",
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://cangurudigital.com.br/blog/quanto-investir-em-anuncios/"
-          },
-          "headline": "Quanto devo investir em anúncios no Instagram e Google em 2026?",
-          "description": desc,
-          "image": "https://cangurudigital.com.br/src/assets/images/blog_budget_2026_1784653896023.jpg",
-          "author": {
-            "@type": "Person",
-            "name": "Wesley Camelo",
-            "jobTitle": "Founder & Diretor de Tráfego"
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "Canguru Digital",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://cangurudigital.com.br/src/assets/images/wesley_camelo_1784653866650.jpg"
-            }
-          },
-          "datePublished": "2026-07-21T10:10:00-03:00",
-          "dateModified": "2026-07-21T10:10:00-03:00"
-        };
+      default:
+        if (currentRoute.startsWith("/blog/")) {
+          const postSlug = currentRoute.replace(/^\/blog\//, "").replace(/\/+$/, "");
+          const post = getPostBySlug(postSlug);
+          if (post) {
+            title = `${post.title} | Blog Canguru Analítica`;
+            desc = post.excerpt;
+            url = `https://cangurudigital.com.br/blog/${post.slug}/`;
+            type = "article";
+            jsonLd = {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": url
+              },
+              "headline": post.title,
+              "description": desc,
+              "image": post.image,
+              "author": {
+                "@type": "Person",
+                "name": post.author,
+                "jobTitle": post.authorRole
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "Canguru Digital",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://cangurudigital.com.br/src/assets/images/wesley_camelo_1784653866650.jpg"
+                }
+              },
+              "datePublished": "2026-07-21T10:10:00-03:00",
+              "dateModified": "2026-07-21T10:10:00-03:00"
+            };
+          }
+        }
         break;
     }
 
@@ -279,22 +292,16 @@ export default function App() {
 
   // Seletor de visualização de páginas
   const renderPage = () => {
-    switch (currentRoute) {
-      case "/":
-        return <Home navigateTo={navigateTo} />;
-      case "/servicos/":
-        return <Servicos navigateTo={navigateTo} />;
-      case "/sobre-nos/":
-        return <Sobre navigateTo={navigateTo} />;
-      case "/contato/":
-        return <Contato navigateTo={navigateTo} />;
-      case "/blog/":
-        return <Blog navigateTo={navigateTo} />;
-      case "/blog/quanto-investir-em-anuncios/":
-        return <BlogPost navigateTo={navigateTo} />;
-      default:
-        return <Home navigateTo={navigateTo} />;
+    if (currentRoute === "/") return <Home navigateTo={navigateTo} />;
+    if (currentRoute === "/servicos/") return <Servicos navigateTo={navigateTo} />;
+    if (currentRoute === "/sobre-nos/") return <Sobre navigateTo={navigateTo} />;
+    if (currentRoute === "/contato/") return <Contato navigateTo={navigateTo} />;
+    if (currentRoute === "/blog/") return <Blog navigateTo={navigateTo} />;
+    if (currentRoute.startsWith("/blog/")) {
+      const slug = currentRoute.replace(/^\/blog\//, "").replace(/\/+$/, "");
+      return <BlogPost slug={slug} navigateTo={navigateTo} />;
     }
+    return <Home navigateTo={navigateTo} />;
   };
 
   return (
