@@ -240,7 +240,7 @@ export default function App() {
                 "name": "Canguru Digital",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://cangurudigital.com.br/assets/images/Wesley-Camelo-Fundador.jpeg"
+                  "url": "https://cangurudigital.com.br/assets/images/logo_canguru_horizontal.png"
                 }
               },
               "datePublished": "2026-07-21T10:10:00-03:00",

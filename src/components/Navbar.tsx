@@ -5,7 +5,7 @@
 
 import { useState } from "react";
 import { Activity, Menu, X, ArrowUpRight } from "lucide-react";
-import logoImg from "../assets/images/Rebranding_Canguru_Digital_Horizontal_SemFundo.png";
+import logoImg from "../assets/images/logo_canguru_horizontal.png";
 
 interface NavbarProps {
   currentRoute: string;
