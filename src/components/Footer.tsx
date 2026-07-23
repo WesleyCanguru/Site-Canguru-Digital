@@ -6,7 +6,7 @@
 import React, { useState } from "react";
 import { addNewsletter } from "../lib/database";
 import { Send, ArrowUpRight, Check, AlertCircle, Database } from "lucide-react";
-import logoImg from "../assets/images/Rebranding_Canguru_Digital_Horizontal_SemFundo.png";
+import logoImg from "../assets/images/canguru-logo.png";
 
 interface FooterProps {
   navigateTo: (route: string) => void;
@@ -71,7 +71,10 @@ export default function Footer({ navigateTo }: FooterProps) {
                 src={logoImg} 
                 alt="Canguru Digital" 
                 referrerPolicy="no-referrer"
-                className="h-15 w-auto object-contain transition-transform group-hover:scale-105"
+                onError={(e) => {
+                  e.currentTarget.src = "/assets/images/canguru-logo.png";
+                }}
+                className="h-12 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105"
               />
             </div>
             

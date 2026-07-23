@@ -5,7 +5,7 @@
 
 import { useState } from "react";
 import { Activity, Menu, X, ArrowUpRight } from "lucide-react";
-import logoImg from "../assets/images/Rebranding_Canguru_Digital_Horizontal_SemFundo.png";
+import logoImg from "../assets/images/canguru-logo.png";
 
 interface NavbarProps {
   currentRoute: string;
@@ -43,7 +43,10 @@ export default function Navbar({ currentRoute, navigateTo }: NavbarProps) {
               src={logoImg} 
               alt="Canguru Digital" 
               referrerPolicy="no-referrer"
-              className="h-14 sm:h-15 w-auto object-contain transition-transform group-hover:scale-105"
+              onError={(e) => {
+                e.currentTarget.src = "/assets/images/canguru-logo.png";
+              }}
+              className="h-12 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105"
             />
           </div>
 
