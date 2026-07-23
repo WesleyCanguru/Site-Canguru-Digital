@@ -71,9 +71,6 @@ export default function Footer({ navigateTo }: FooterProps) {
                 src={logoImg} 
                 alt="Canguru Digital" 
                 referrerPolicy="no-referrer"
-                onError={(e) => {
-                  e.currentTarget.src = "/assets/images/canguru-logo.png";
-                }}
                 className="h-12 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105"
               />
             </div>
