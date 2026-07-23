@@ -39,7 +39,7 @@ export default function Navbar({ currentRoute, navigateTo }: NavbarProps) {
             className="flex items-center cursor-pointer group"
           >
             <img 
-              src="/src/assets/images/Rebranding_Canguru Digital_Horizontal_SemFundo.png" 
+              src="/assets/images/Rebranding_Canguru Digital_Horizontal_SemFundo.png" 
               alt="Canguru Digital" 
               referrerPolicy="no-referrer"
               className="h-14 sm:h-15 w-auto object-contain transition-transform group-hover:scale-105"

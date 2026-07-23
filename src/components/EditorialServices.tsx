@@ -33,7 +33,7 @@ export const servicesData: ServiceItem[] = [
     description: "Cada real investido é rastreado e otimizado diariamente por especialistas focados em ROI real. Analisamos detalhadamente a jornada do seu cliente para desenhar campanhas cirúrgicas que impactam as pessoas certas na hora da decisão de compra.",
     features: ["Otimização diária de verba", "Criação de copys persuasivas", "Rastreamento absoluto de pixels"],
     icon: <Zap className="w-5 h-5 text-[#20364d]" />,
-    imageUrl: "/src/assets/images/service_trafego_pago_1784745972008.jpg",
+    imageUrl: "/assets/images/service_trafego_pago_1784745972008.jpg",
     imageAlt: "Tráfego Pago e Analytics de Alta Performance",
   },
   {
@@ -44,7 +44,7 @@ export const servicesData: ServiceItem[] = [
     description: "Criamos linhas editoriais estratégicas pensadas especificamente para elevar a percepção de valor do seu negócio, educar sua audiência e quebrar objeções de compra antes mesmo do contato comercial.",
     features: ["Linha editorial de autoridade", "Design visual customizado", "Roteiros focados em conversão"],
     icon: <Layers className="w-5 h-5 text-[#20364d]" />,
-    imageUrl: "/src/assets/images/service_social_media_1784745985476.jpg",
+    imageUrl: "/assets/images/service_social_media_1784745985476.jpg",
     imageAlt: "Produção Editorial de Conteúdo e Social Media",
   },
   {
@@ -55,7 +55,7 @@ export const servicesData: ServiceItem[] = [
     description: "Projetamos marcas memoráveis, sofisticadas e estruturadas sob conceitos visuais sólidos e tipografia impecável. O resultado é um posicionamento de marca premium imediato que passa respeito e atrai clientes de alto ticket.",
     features: ["Design de marca 100% autoral", "Manual de marca completo", "Aplicações corporativas premium"],
     icon: <Sparkles className="w-5 h-5 text-[#20364d]" />,
-    imageUrl: "/src/assets/images/service_identidade_visual_1784745999127.jpg",
+    imageUrl: "/assets/images/service_identidade_visual_1784745999127.jpg",
     imageAlt: "Design de Identidade Visual e Tipografia",
   },
   {
@@ -66,7 +66,7 @@ export const servicesData: ServiceItem[] = [
     description: "Desenvolvemos estruturas web do zero com carregamento ultraveloz em dispositivos móveis, UX/UI sofisticada e copys de conversão integradas com pixels de rastreamento de tráfego.",
     features: ["Design responsivo e veloz", "Copy de alta conversão integrada", "Otimização técnica para Google SEO"],
     icon: <Globe className="w-5 h-5 text-[#20364d]" />,
-    imageUrl: "/src/assets/images/service_sites_landingpages_1784746011243.jpg",
+    imageUrl: "/assets/images/service_sites_landingpages_1784746011243.jpg",
     imageAlt: "Desenvolvimento Web e UI de Alta Conversão",
   },
   {
@@ -77,7 +77,7 @@ export const servicesData: ServiceItem[] = [
     description: "Fazemos seu estabelecimento físico ou empresa ser a primeira opção listada quando alguém pesquisa por sua solução na sua região imediata no Google Maps e busca orgânica.",
     features: ["Indexação em posições de topo local", "Geolocalização de imagens e palavras", "Estratégia de aumento de avaliações"],
     icon: <UserCheck className="w-5 h-5 text-[#20364d]" />,
-    imageUrl: "/src/assets/images/service_seo_local_1784746024687.jpg",
+    imageUrl: "/assets/images/service_seo_local_1784746024687.jpg",
     imageAlt: "Otimização Local e Geolocalização no Google",
   },
   {
@@ -88,7 +88,7 @@ export const servicesData: ServiceItem[] = [
     description: "Implementamos funis de automação no WhatsApp para qualificar leads, responder dúvidas comuns imediatamente e integrar seus contatos direto na mesa de negociação do vendedor.",
     features: ["Setup e organização de CRM", "Automação sem robô chato e robótico", "Esteira integrada de follow-up"],
     icon: <Cpu className="w-5 h-5 text-[#20364d]" />,
-    imageUrl: "/src/assets/images/service_crm_automacao_1784746036887.jpg",
+    imageUrl: "/assets/images/service_crm_automacao_1784746036887.jpg",
     imageAlt: "Automações de CRM e WhatsApp Business",
   },
   {
@@ -99,7 +99,7 @@ export const servicesData: ServiceItem[] = [
     description: "Criamos newsletters exclusivas, fluxos de nutrição de leads, e-mails transacionais e sequências automatizadas de recuperação comercial que geram vendas constantes para sua base.",
     features: ["Copys com alta taxa de abertura", "Fluxos automatizados de nutrição", "Recuperação de contatos antigos"],
     icon: <Mail className="w-5 h-5 text-[#20364d]" />,
-    imageUrl: "/src/assets/images/service_email_marketing_1784746049371.jpg",
+    imageUrl: "/assets/images/service_email_marketing_1784746049371.jpg",
     imageAlt: "Automação de E-mail Marketing e Retenção",
   },
 ];

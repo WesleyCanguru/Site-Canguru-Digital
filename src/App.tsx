@@ -137,7 +137,7 @@ export default function App() {
               "@type": "ProfessionalService",
               "@id": "https://cangurudigital.com.br/#service",
               "name": "Canguru Digital",
-              "image": "https://cangurudigital.com.br/src/assets/images/Wesley-Camelo-Fundador.jpeg",
+              "image": "https://cangurudigital.com.br/assets/images/Wesley-Camelo-Fundador.jpeg",
               "url": "https://cangurudigital.com.br",
               "telephone": "+55-11-99407-5149",
               "priceRange": "$$",
@@ -240,7 +240,7 @@ export default function App() {
                 "name": "Canguru Digital",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://cangurudigital.com.br/src/assets/images/Wesley-Camelo-Fundador.jpeg"
+                  "url": "https://cangurudigital.com.br/assets/images/Wesley-Camelo-Fundador.jpeg"
                 }
               },
               "datePublished": "2026-07-21T10:10:00-03:00",
@@ -270,7 +270,7 @@ export default function App() {
     updateMetaTag("property", "og:description", desc);
     updateMetaTag("property", "og:type", type);
     updateMetaTag("property", "og:url", url);
-    updateMetaTag("property", "og:image", "https://cangurudigital.com.br/src/assets/images/blog_budget_2026_1784653896023.jpg");
+    updateMetaTag("property", "og:image", "https://cangurudigital.com.br/assets/images/blog_budget_2026_1784653896023.jpg");
 
     // Injeta JSON-LD de forma técnica e segura
     const scriptId = "canguru-json-ld";
