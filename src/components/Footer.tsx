@@ -6,7 +6,7 @@
 import React, { useState } from "react";
 import { addNewsletter } from "../lib/database";
 import { Send, ArrowUpRight, Check, AlertCircle, Database } from "lucide-react";
-import logoImg from "../assets/images/canguru-logo.png";
+import logoImg from "../assets/images/Rebranding_Canguru_Digital_Horizontal_SemFundo.png";
 
 interface FooterProps {
   navigateTo: (route: string) => void;
