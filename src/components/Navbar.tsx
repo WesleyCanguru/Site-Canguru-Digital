@@ -5,6 +5,7 @@
 
 import { useState } from "react";
 import { Activity, Menu, X, ArrowUpRight } from "lucide-react";
+import logoImg from "../assets/images/Rebranding_Canguru_Digital_Horizontal_SemFundo.png";
 
 interface NavbarProps {
   currentRoute: string;
@@ -39,7 +40,7 @@ export default function Navbar({ currentRoute, navigateTo }: NavbarProps) {
             className="flex items-center cursor-pointer group"
           >
             <img 
-              src="/assets/images/Rebranding_Canguru Digital_Horizontal_SemFundo.png" 
+              src={logoImg} 
               alt="Canguru Digital" 
               referrerPolicy="no-referrer"
               className="h-14 sm:h-15 w-auto object-contain transition-transform group-hover:scale-105"

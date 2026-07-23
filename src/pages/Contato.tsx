@@ -6,6 +6,7 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { addLead } from "../lib/database";
+import wesleyFoto from "../assets/images/Wesley-Camelo-Fundador.jpeg";
 import { 
   MessageSquare, 
   Send, 
@@ -171,7 +172,7 @@ export default function Contato({ navigateTo }: ContatoProps) {
             <div className="relative pt-6">
               <div className="flex items-center gap-3 bg-[#111318]/50 p-4 rounded-xl border border-white/10">
                 <img
-                  src="/assets/images/Wesley-Camelo-Fundador.jpeg"
+                  src={wesleyFoto}
                   alt="Wesley Camelo"
                   referrerPolicy="no-referrer"
                   className="w-12 h-12 object-cover rounded-full border border-white/10 shrink-0"

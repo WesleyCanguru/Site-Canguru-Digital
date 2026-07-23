@@ -6,6 +6,7 @@
 import React, { useState } from "react";
 import { addNewsletter } from "../lib/database";
 import { Send, ArrowUpRight, Check, AlertCircle, Database } from "lucide-react";
+import logoImg from "../assets/images/Rebranding_Canguru_Digital_Horizontal_SemFundo.png";
 
 interface FooterProps {
   navigateTo: (route: string) => void;
@@ -67,7 +68,7 @@ export default function Footer({ navigateTo }: FooterProps) {
               className="flex items-center cursor-pointer group"
             >
               <img 
-                src="/assets/images/Rebranding_Canguru Digital_Horizontal_SemFundo.png" 
+                src={logoImg} 
                 alt="Canguru Digital" 
                 referrerPolicy="no-referrer"
                 className="h-15 w-auto object-contain transition-transform group-hover:scale-105"

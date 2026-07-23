@@ -5,6 +5,7 @@ import EditorialServices from "../components/EditorialServices";
 import CountUp from "../components/CountUp";
 import TiltCard from "../components/TiltCard";
 import { addLead } from "../lib/database";
+import wesleyFoto from "../assets/images/Wesley-Camelo-Fundador.jpeg";
 import { 
   MessageSquare, 
   ChevronDown, 
@@ -236,7 +237,7 @@ export default function Home({ navigateTo }: HomeProps) {
           <motion.div style={{ y: heroImageY }} className="lg:col-span-5 relative flex justify-center">
             <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-white/15 shadow-2xl bg-slate-950/60 p-3 group">
               <img
-                src="/assets/images/Wesley-Camelo-Fundador.jpeg"
+                src={wesleyFoto}
                 alt="Wesley Camelo - Fundador Canguru Digital"
                 referrerPolicy="no-referrer"
                 className="w-full h-auto aspect-[3/4] object-cover object-top rounded-xl transition-transform duration-700 group-hover:scale-105"

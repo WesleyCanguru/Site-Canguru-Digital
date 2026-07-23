@@ -7,6 +7,7 @@ import React from "react";
 import { motion } from "motion/react";
 import TiltCard from "../components/TiltCard";
 import { MessageSquare, Calendar, Award, ShieldCheck } from "lucide-react";
+import wesleyFoto from "../assets/images/Wesley-Camelo-Fundador.jpeg";
 
 interface SobreProps {
   navigateTo: (route: string) => void;
@@ -127,7 +128,7 @@ export default function Sobre({ navigateTo }: SobreProps) {
             <TiltCard scale={1.02} maxTilt={8}>
               <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-white/15 shadow-2xl bg-slate-950/40 p-3 group">
                 <img
-                  src="/assets/images/Wesley-Camelo-Fundador.jpeg"
+                  src={wesleyFoto}
                   alt="Wesley Camelo"
                   referrerPolicy="no-referrer"
                   className="w-full h-auto aspect-[3/4] object-cover object-top rounded-xl transition-transform duration-700 group-hover:scale-105"
