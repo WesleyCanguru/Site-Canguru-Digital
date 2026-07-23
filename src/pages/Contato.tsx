@@ -171,7 +171,7 @@ export default function Contato({ navigateTo }: ContatoProps) {
             <div className="relative pt-6">
               <div className="flex items-center gap-3 bg-[#111318]/50 p-4 rounded-xl border border-white/10">
                 <img
-                  src="/src/assets/images/wesley_camelo_1784653866650.jpg"
+                  src="/src/assets/images/Wesley-Camelo-Fundador.jpeg"
                   alt="Wesley Camelo"
                   referrerPolicy="no-referrer"
                   className="w-12 h-12 object-cover rounded-full border border-white/10 shrink-0"

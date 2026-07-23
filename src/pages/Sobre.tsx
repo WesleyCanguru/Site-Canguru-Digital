@@ -127,10 +127,10 @@ export default function Sobre({ navigateTo }: SobreProps) {
             <TiltCard scale={1.02} maxTilt={8}>
               <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-white/15 shadow-2xl bg-slate-950/40 p-3 group">
                 <img
-                  src="/src/assets/images/wesley_camelo_1784653866650.jpg"
+                  src="/src/assets/images/Wesley-Camelo-Fundador.jpeg"
                   alt="Wesley Camelo"
                   referrerPolicy="no-referrer"
-                  className="w-full h-auto aspect-[3/4] object-cover rounded-xl transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-auto aspect-[3/4] object-cover object-top rounded-xl transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
             </TiltCard>

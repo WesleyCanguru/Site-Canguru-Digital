@@ -62,19 +62,16 @@ export default function Footer({ navigateTo }: FooterProps) {
           
           {/* Coluna 1: Branding */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="flex items-center gap-2.5">
-              <div className="w-10 h-10 bg-slate-900 border border-slate-800 rounded-xl flex items-center justify-center">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-5 h-5 text-white" strokeWidth="2.5">
-                  <path d="M17 3h4v4" />
-                  <path d="m12 12 5-5" />
-                  <path d="M14 8h-4a2 2 0 0 0-2 2v10h12V10a2 2 0 0 0-2-2Z" />
-                  <path d="M8 12H3a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h5" />
-                </svg>
-              </div>
-              <div>
-                <span className="text-sm font-black uppercase tracking-[0.2em] text-white block leading-none">Canguru</span>
-                <span className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#20364d] block mt-1 leading-none">Digital</span>
-              </div>
+            <div 
+              onClick={() => handleLinkClick("/")}
+              className="flex items-center cursor-pointer group"
+            >
+              <img 
+                src="/src/assets/images/Rebranding_Canguru Digital_Horizontal_SemFundo.png" 
+                alt="Canguru Digital" 
+                referrerPolicy="no-referrer"
+                className="h-15 w-auto object-contain transition-transform group-hover:scale-105"
+              />
             </div>
             
             <p className="text-sm text-slate-400 max-w-sm leading-relaxed">

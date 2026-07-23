@@ -36,29 +36,14 @@ export default function Navbar({ currentRoute, navigateTo }: NavbarProps) {
           {/* Logo da Canguru Digital */}
           <div 
             onClick={() => handleLinkClick("/")}
-            className="flex items-center gap-2.5 cursor-pointer group"
+            className="flex items-center cursor-pointer group"
           >
-            <div className="w-10 h-10 bg-slate-900 border border-white/10 rounded-xl flex items-center justify-center transition-all group-hover:border-[#20364d] group-hover:shadow-[0_0_15px_rgba(32,54,77,0.3)]">
-              {/* Ícone vetorizado de Canguru Minimalista */}
-              <svg 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                className="w-5 h-5 text-white transition-transform group-hover:scale-110" 
-                strokeWidth="2.5" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
-                <path d="M17 3h4v4" />
-                <path d="m12 12 5-5" />
-                <path d="M14 8h-4a2 2 0 0 0-2 2v10h12V10a2 2 0 0 0-2-2Z" />
-                <path d="M8 12H3a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h5" />
-              </svg>
-            </div>
-            <div>
-              <span className="text-sm font-black uppercase tracking-[0.2em] text-white block leading-none">Canguru</span>
-              <span className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#20364d] block mt-1 leading-none">Digital</span>
-            </div>
+            <img 
+              src="/src/assets/images/Rebranding_Canguru Digital_Horizontal_SemFundo.png" 
+              alt="Canguru Digital" 
+              referrerPolicy="no-referrer"
+              className="h-14 sm:h-15 w-auto object-contain transition-transform group-hover:scale-105"
+            />
           </div>
 
           {/* Links para Desktop */}

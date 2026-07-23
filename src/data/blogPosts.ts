@@ -36,7 +36,7 @@ export const BLOG_POSTS: BlogPostItem[] = [
     image: "/src/assets/images/blog_budget_2026_1784653896023.jpg",
     author: "Wesley Camelo",
     authorRole: "Fundador & Diretor de Estratégia",
-    authorAvatar: "/src/assets/images/wesley_camelo_1784653866650.jpg",
+    authorAvatar: "/src/assets/images/Wesley-Camelo-Fundador.jpeg",
     featured: true,
     intro: "Se você perguntar para qualquer agência tradicional quanto deve investir em anúncios pagos, a resposta padrão sempre será: 'Depende dos seus objetivos'. Nós achamos essa resposta preguiçosa. Embora metas variem, o mercado possui regras numéricas frias que ditam o sucesso em 2026.",
     sections: [
@@ -105,7 +105,7 @@ export const BLOG_POSTS: BlogPostItem[] = [
     image: "/src/assets/images/blog_pdf_reports_1784740387120.jpg",
     author: "Wesley Camelo",
     authorRole: "Fundador & Diretor de Estratégia",
-    authorAvatar: "/src/assets/images/wesley_camelo_1784653866650.jpg",
+    authorAvatar: "/src/assets/images/Wesley-Camelo-Fundador.jpeg",
     featured: false,
     intro: "Imagine pilotar um avião em alta velocidade olhado apenas para fotos impressas do painel tiradas no mês passado. Parece absurdo, mas é exatamente assim que a maioria das empresas gerencia o marketing digital ao aceitar relatórios em PDF enviados a cada 30 dias.",
     sections: [
@@ -148,7 +148,7 @@ export const BLOG_POSTS: BlogPostItem[] = [
     image: "/src/assets/images/blog_whatsapp_crm_1784740401668.jpg",
     author: "Wesley Camelo",
     authorRole: "Fundador & Diretor de Estratégia",
-    authorAvatar: "/src/assets/images/wesley_camelo_1784653866650.jpg",
+    authorAvatar: "/src/assets/images/Wesley-Camelo-Fundador.jpeg",
     featured: false,
     intro: "Pesquisas de mercado em 2026 provam que o tempo de resposta ideal para um lead vindo de anúncios na internet é de até 5 minutos. Após 15 minutos de espera, a chance de conversão despenca em mais de 70%.",
     sections: [
@@ -184,7 +184,7 @@ export const BLOG_POSTS: BlogPostItem[] = [
     image: "/src/assets/images/blog_landing_pages_1784740416071.jpg",
     author: "Wesley Camelo",
     authorRole: "Fundador & Diretor de Estratégia",
-    authorAvatar: "/src/assets/images/wesley_camelo_1784653866650.jpg",
+    authorAvatar: "/src/assets/images/Wesley-Camelo-Fundador.jpeg",
     featured: false,
     intro: "Muitos empresários culpam o tráfego pago quando os anúncios não vendem. No entanto, ao analisar a página de destino, encontramos sites lentos, poluídos ou que demoram 5 segundos para carregar em celulares.",
     sections: [
@@ -213,7 +213,7 @@ export const BLOG_POSTS: BlogPostItem[] = [
     image: "/src/assets/images/blog_content_strategy_1784740428926.jpg",
     author: "Wesley Camelo",
     authorRole: "Fundador & Diretor de Estratégia",
-    authorAvatar: "/src/assets/images/wesley_camelo_1784653866650.jpg",
+    authorAvatar: "/src/assets/images/Wesley-Camelo-Fundador.jpeg",
     featured: false,
     intro: "Conteúdo orgânico e tráfego pago não devem rodar como ilhas isoladas. Quando o anúncio atrai a atenção de um potencial cliente e ele visita o seu perfil, seu feed deve validar a autoridade da sua marca imediatamente.",
     sections: [

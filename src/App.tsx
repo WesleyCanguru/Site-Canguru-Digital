@@ -137,7 +137,7 @@ export default function App() {
               "@type": "ProfessionalService",
               "@id": "https://cangurudigital.com.br/#service",
               "name": "Canguru Digital",
-              "image": "https://cangurudigital.com.br/src/assets/images/wesley_camelo_1784653866650.jpg",
+              "image": "https://cangurudigital.com.br/src/assets/images/Wesley-Camelo-Fundador.jpeg",
               "url": "https://cangurudigital.com.br",
               "telephone": "+55-11-99407-5149",
               "priceRange": "$$",
@@ -240,7 +240,7 @@ export default function App() {
                 "name": "Canguru Digital",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://cangurudigital.com.br/src/assets/images/wesley_camelo_1784653866650.jpg"
+                  "url": "https://cangurudigital.com.br/src/assets/images/Wesley-Camelo-Fundador.jpeg"
                 }
               },
               "datePublished": "2026-07-21T10:10:00-03:00",

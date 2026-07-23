@@ -236,10 +236,10 @@ export default function Home({ navigateTo }: HomeProps) {
           <motion.div style={{ y: heroImageY }} className="lg:col-span-5 relative flex justify-center">
             <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-white/15 shadow-2xl bg-slate-950/60 p-3 group">
               <img
-                src="/src/assets/images/wesley_camelo_1784653866650.jpg"
+                src="/src/assets/images/Wesley-Camelo-Fundador.jpeg"
                 alt="Wesley Camelo - Fundador Canguru Digital"
                 referrerPolicy="no-referrer"
-                className="w-full h-auto aspect-[3/4] object-cover rounded-xl transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-auto aspect-[3/4] object-cover object-top rounded-xl transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute bottom-6 left-6 right-6 p-4 bg-[#0f1115]/95 border border-white/15 rounded-xl backdrop-blur-md">
                 <span className="text-[9px] font-black uppercase tracking-widest text-[#20364d] block">Fundação & Liderança</span>

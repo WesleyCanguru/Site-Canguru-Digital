@@ -5,7 +5,6 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import EditorialServices from "../components/EditorialServices";
 import TiltCard from "../components/TiltCard";
 import { 
   MessageSquare, 
@@ -166,34 +165,6 @@ export default function Servicos({ navigateTo }: ServicosProps) {
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
             Estruturamos as frentes de tráfego pago, conteúdo, branding, tecnologia web e automação que o seu negócio precisa hoje para alcançar metas de faturamento reais. Nada a mais, nada a menos.
           </p>
-        </motion.div>
-      </section>
-
-      {/* SEÇÃO EDITORIAL DE SERVIÇOS EM INTERAÇÃO TOTAL */}
-      <section className="w-full py-20 sm:py-24 px-6 sm:px-12 lg:px-20 border-b border-white/10 bg-[#0f1115]">
-        <motion.div 
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6 }}
-          className="w-full space-y-12"
-        >
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-white/10">
-            <div>
-              <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400 block mb-1">
-                07 Frentes Integradas
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-                Visão Geral do Ecossistema
-              </h2>
-            </div>
-            <p className="text-xs text-slate-400 max-w-md leading-relaxed">
-              Passe o cursor sobre os serviços abaixo para visualizar detalhes e ilustrações técnicas em tempo real.
-            </p>
-          </div>
-
-          {/* Componente da Lista Editorial Interativa */}
-          <EditorialServices navigateTo={navigateTo} />
         </motion.div>
       </section>
 
