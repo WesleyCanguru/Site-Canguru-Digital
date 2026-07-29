@@ -84,10 +84,10 @@ export default function Home({ navigateTo }: HomeProps) {
   const heroOpacity = useTransform(heroScrollProgress, [0, 0.8], [1, 0]);
 
   const stats = [
-    { value: 6, suffix: "+ Anos", label: "De mercado digital focado em ROI" },
+    { value: 8, suffix: "+ Anos", label: "De mercado digital focado em ROI" },
     { value: 9, suffix: "+ Frentes", label: "De trabalho totalmente integradas" },
     { value: 100, suffix: "% Real-time", label: "Transparência de acompanhamento" },
-    { value: 15, prefix: "+R$ ", suffix: " Mi", label: "Gerenciados em anúncios pagos" },
+    { value: 5, prefix: "+R$ ", suffix: " Mi", label: "Gerenciados em anúncios pagos" },
   ];
 
   const pilares = [

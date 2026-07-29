@@ -16,7 +16,7 @@ import imgTrafego from "../assets/images/service_trafego_pago_1784745972008.jpg"
 import imgSocial from "../assets/images/service_social_media_1784745985476.jpg";
 import imgIdentidade from "../assets/images/service_identidade_visual_1784745999127.jpg";
 import imgSites from "../assets/images/service_sites_landingpages_1784746011243.jpg";
-import imgSeo from "../assets/images/service_seo_local_1784746024687.jpg";
+import imgSeo from "../assets/images/service_seo_local_1785329791096.jpg";
 import imgCrm from "../assets/images/service_crm_automacao_1784746036887.jpg";
 import imgEmail from "../assets/images/service_email_marketing_1784746049371.jpg";
 

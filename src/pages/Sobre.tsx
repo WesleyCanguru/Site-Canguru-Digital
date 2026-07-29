@@ -95,7 +95,7 @@ export default function Sobre({ navigateTo }: SobreProps) {
                 </div>
                 <div>
                   <h4 className="text-xs font-black uppercase tracking-wider text-white">Consolidação</h4>
-                  <p className="text-xs text-slate-400 mt-1">Mais de 6 anos de mercado atuando em dezenas de frentes de tráfego.</p>
+                  <p className="text-xs text-slate-400 mt-1">Mais de 8 anos de mercado atuando em dezenas de frentes de tráfego.</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
