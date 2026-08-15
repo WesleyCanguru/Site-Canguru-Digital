@@ -114,7 +114,7 @@ export const BLOG_POSTS: BlogPostItem[] = [
     authorRole: "Fundador & Diretor de Estratégia",
     authorAvatar: wesleyAvatar,
     featured: false,
-    intro: "Imagine pilotar um avião em alta velocidade olhado apenas para fotos impressas do painel tiradas no mês passado. Parece absurdo, mas é exatamente assim que a maioria das empresas gerencia o marketing digital ao aceitar relatórios em PDF enviados a cada 30 dias.",
+    intro: "Imagine pilotar um avião em alta velocidade olhando apenas para fotos impressas do painel tiradas no mês passado. Parece absurdo, mas é exatamente assim que a maioria das empresas gerencia o marketing digital ao aceitar relatórios em PDF enviados a cada 30 dias.",
     sections: [
       {
         heading: "1. A ilusão das métricas de vaidade",
@@ -126,7 +126,7 @@ export const BLOG_POSTS: BlogPostItem[] = [
       {
         heading: "2. O problema do atraso na tomada de decisão",
         content: [
-          "Quando um anúncio perde eficiência ou um link quebra no dia 5 do mês, se você só descobre isso no relatório enviado dia 30, você jogou 25 days de verba no lixo sem nenhuma chance de correção ágil.",
+          "Quando um anúncio perde eficiência ou um link quebra no dia 5 do mês, se você só descobre isso no relatório enviado dia 30, você jogou 25 dias de verba no lixo sem nenhuma chance de correção ágil.",
           "Na Canguru, acreditamos que o acompanhamento deve ser em tempo real. Cada ajuste em criativo, landing page ou orçamento deve ser visível instantaneamente."
         ]
       },
@@ -157,7 +157,7 @@ export const BLOG_POSTS: BlogPostItem[] = [
     authorRole: "Fundador & Diretor de Estratégia",
     authorAvatar: wesleyAvatar,
     featured: false,
-    intro: "Pesquisas de mercado em 2026 provam que o tempo de resposta ideal para um lead vindo de anúncios na internet é de até 5 minutos. Após 15 minutos de espera, a chance de conversão despenca em mais de 70%.",
+    intro: "Pesquisas de mercado em 2026 provam que o tempo de resposta ideal para um lead vindo de anúncios na internet é de até 5 minutos. Após 30 minutos de espera, a chance de conversão despenca em mais de 70%.",
     sections: [
       {
         heading: "1. A regra dos 5 minutos no atendimento comercial",
@@ -206,6 +206,27 @@ export const BLOG_POSTS: BlogPostItem[] = [
         content: [
           "Sua proposta de valor precisa ser entendida em 3 segundos. O visitante precisa saber exatamente o que você oferece, para quem é e qual o próximo passo."
         ]
+      },
+      {
+        heading: "3. Chamada para ação (CTA) única e em destaque acima da dobra",
+        content: [
+          "Não disperse a atenção do visitante com múltiplos botões de objetivos conflitantes. Defina uma ação primária clara (como 'Solicitar Diagnóstico' ou 'Falar no WhatsApp') e garanta que o botão principal esteja acessível logo na primeira rolagem, com contraste visual marcante.",
+          "Elimine menus de navegação complexos, links externos desnecessários e elementos que desviem o usuário do objetivo central de conversão da página."
+        ]
+      },
+      {
+        heading: "4. Prova social estruturada e dados reais de credibilidade",
+        content: [
+          "Em um mercado saturado de promessas genéricas, o visitante busca validação antes de fornecer seus dados de contato. Posicione depoimentos reais, avaliações com foto, logotipos de clientes atendidos e métricas numéricas comprovadas logo após a apresentação da sua oferta.",
+          "A prova social colocada estrategicamente quebra as principais objeções de confiança no momento exato em que o usuário avalia a tomada de decisão."
+        ]
+      },
+      {
+        heading: "5. Formulário com fricção mínima e foco em qualificação",
+        content: [
+          "Cada campo adicional exigido em um formulário pode diminuir a taxa de conversão em até 10%. Na primeira etapa do funil, colete estritamente o necessário para contato e triagem inicial (como Nome, WhatsApp e Segmento da empresa).",
+          "Deixe perguntas complementares para a abordagem comercial subsequente no CRM ou WhatsApp, garantindo uma entrada rápida e fluida de novas oportunidades comerciais no seu pipeline."
+        ]
       }
     ],
     summary: "Invista em uma landing page rápida, limpa e focada em conversão para multiplicar o retorno sobre cada real investido em mídia paga."
@@ -243,5 +264,8 @@ export const BLOG_POSTS: BlogPostItem[] = [
 
 export function getPostBySlug(slug: string): BlogPostItem | undefined {
   const clean = slug.trim().toLowerCase().replace(/\/+$/, "");
+  if (clean === "quanto-investir-em-anuncios-pagos" || clean === "quanto-investir-em-anuncios") {
+    return BLOG_POSTS.find((p) => p.slug === "quanto-investir-em-anuncios");
+  }
   return BLOG_POSTS.find((p) => p.slug.toLowerCase() === clean);
 }

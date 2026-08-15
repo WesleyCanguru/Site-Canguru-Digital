@@ -90,12 +90,12 @@ export default function Blog({ navigateTo }: BlogProps) {
         <div className="w-full max-w-6xl space-y-8">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#20364d]/30 border border-[#20364d] text-sky-300 text-[10px] font-extrabold uppercase tracking-[0.2em]">
             <BookOpen className="w-3.5 h-3.5 text-sky-400" />
-            Hub de Conteúdo Estratégico — Canguru Analítica
+            Hub de Conteúdo Estratégico: Canguru Analítica
           </div>
 
           <div className="space-y-4 max-w-4xl">
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.93] text-white">
-              Estratégia sem rodeios técnicos.
+              Blog Canguru Analítica: Conteúdo Estratégico de Tráfego Pago
             </h1>
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
               Documentamos semanalmente o que realmente funciona em tráfego pago, automação de WhatsApp, CRM e conversão de landing pages. Sem teorias de livro, apenas dados de campo de batalha.

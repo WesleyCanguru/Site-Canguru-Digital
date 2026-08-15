@@ -85,7 +85,7 @@ export default function Home({ navigateTo }: HomeProps) {
 
   const stats = [
     { value: 8, suffix: "+ Anos", label: "De mercado digital focado em ROI" },
-    { value: 9, suffix: "+ Frentes", label: "De trabalho totalmente integradas" },
+    { value: 7, suffix: "+ Frentes", label: "De trabalho totalmente integradas" },
     { value: 100, suffix: "% Real-time", label: "Transparência de acompanhamento" },
     { value: 5, prefix: "+R$ ", suffix: " Mi", label: "Gerenciados em anúncios pagos" },
   ];
@@ -181,32 +181,37 @@ export default function Home({ navigateTo }: HomeProps) {
           <motion.div style={{ y: heroTextY }} className="lg:col-span-7 space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#20364d]/30 border border-[#20364d] text-white text-[10px] font-extrabold uppercase tracking-[0.2em]">
               <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
-              Canguru Digital — 2026
+              Canguru Digital 2026
             </div>
 
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.93] text-white">
+            <h1 
+              className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.93] text-white"
+              aria-label="A Canguru não vende marketing. Entrega controle."
+            >
               {headlineWords.map((word, idx) => {
                 const isControle = word.toLowerCase() === "controle.";
                 return (
-                  <motion.span
-                    key={idx}
-                    className={`inline-block mr-3 ${isControle ? "text-[#20364d]" : ""}`}
-                    initial={{ opacity: 0, y: 35 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 0.6,
-                      delay: idx * 0.07,
-                      ease: [0.215, 0.61, 0.355, 1],
-                    }}
-                  >
-                    {word}
-                  </motion.span>
+                  <span key={idx} className="inline-block">
+                    <motion.span
+                      className={`inline-block mr-3 ${isControle ? "text-[#20364d]" : ""}`}
+                      initial={{ opacity: 0, y: 35 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        duration: 0.6,
+                        delay: idx * 0.07,
+                        ease: [0.215, 0.61, 0.355, 1],
+                      }}
+                    >
+                      {word}
+                    </motion.span>
+                    {idx < headlineWords.length - 1 ? " " : ""}
+                  </span>
                 );
               })}
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed font-medium">
-              Tráfego pago, conteúdo, automação e acompanhamento transparente que mostra exatamente o que está sendo feito pelo seu negócio — sem esperar PDF, sem depender de resposta no WhatsApp.
+              Tráfego pago, conteúdo, automação e acompanhamento transparente que mostra exatamente o que está sendo feito pelo seu negócio: sem esperar PDF, sem depender de resposta no WhatsApp.
             </p>
 
             {/* Botões do Hero: "Fale com a gente" rola suave até o Formulário de Diagnóstico */}

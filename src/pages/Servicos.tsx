@@ -157,10 +157,10 @@ export default function Servicos({ navigateTo }: ServicosProps) {
           className="w-full max-w-6xl space-y-6"
         >
           <span className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#20364d] block">
-            Escopo Operacional & Serviços
+            Escopo Operacional
           </span>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.93] text-white">
-            Atendimento sob medida. Estrutura comercial integrada.
+            Serviços de Tráfego Pago, CRM e Automação
           </h1>
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
             Estruturamos as frentes de tráfego pago, conteúdo, branding, tecnologia web e automação que o seu negócio precisa hoje para alcançar metas de faturamento reais. Nada a mais, nada a menos.

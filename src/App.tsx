@@ -52,7 +52,12 @@ const parsePathToRoute = (path: string): Route => {
 };
 
 export default function App() {
-  const [currentRoute, setCurrentRoute] = useState<Route>("/");
+  const [currentRoute, setCurrentRoute] = useState<Route>(() => {
+    if (typeof window !== "undefined") {
+      return parsePathToRoute(window.location.pathname);
+    }
+    return "/";
+  });
 
   // Inicializa Lenis Smooth Scroll
   useEffect(() => {
@@ -104,10 +109,10 @@ export default function App() {
 
   // Gerenciamento Dinâmico de Metadados SEO & Injeção de JSON-LD estruturado
   useEffect(() => {
-    let title = "Canguru Digital | Controle Operacional & Tráfego Pago de Alta Performance";
+    let title = "Canguru Digital | Tráfego Pago e Controle Operacional";
     let desc = "A Canguru não vende marketing, entrega controle. Tráfego pago focado em ROI, conteúdo estratégico de autoridade e plataforma operacional própria em tempo real.";
     let type = "website";
-    let url = "https://cangurudigital.com.br/";
+    let url = "https://www.cangurudigital.com.br/";
     let jsonLd: any = null;
 
     const faqHome = [
@@ -127,19 +132,22 @@ export default function App() {
 
     switch (currentRoute) {
       case "/":
-        title = "Canguru Digital | Controle Operacional & Tráfego Pago de Alta Performance";
+        title = "Canguru Digital | Tráfego Pago e Controle Operacional";
         desc = "A Canguru não vende marketing, entrega controle. Tráfego pago focado em ROI, conteúdo estratégico de autoridade e plataforma operacional própria em tempo real.";
-        url = "https://cangurudigital.com.br/";
+        url = "https://www.cangurudigital.com.br/";
         jsonLd = {
           "@context": "https://schema.org",
           "@graph": [
             {
-              "@type": "ProfessionalService",
-              "@id": "https://cangurudigital.com.br/#service",
+              "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
+              "@id": "https://www.cangurudigital.com.br/#organization",
               "name": "Canguru Digital",
-              "image": "https://cangurudigital.com.br/assets/images/Wesley-Camelo-Fundador.jpeg",
-              "url": "https://cangurudigital.com.br",
+              "legalName": "Canguru Digital",
+              "image": "https://www.cangurudigital.com.br/assets/images/Wesley-Camelo-Fundador.jpeg",
+              "logo": "https://www.cangurudigital.com.br/assets/images/logo_canguru_horizontal.png",
+              "url": "https://www.cangurudigital.com.br",
               "telephone": "+55-11-99407-5149",
+              "email": "contato@cangurudigital.com.br",
               "priceRange": "$$",
               "address": {
                 "@type": "PostalAddress",
@@ -160,9 +168,15 @@ export default function App() {
                 "opens": "09:00",
                 "closes": "18:00"
               },
+              "sameAs": [
+                "https://www.instagram.com/cangurudigital",
+                "https://www.linkedin.com/company/cangurudigital",
+                "https://www.facebook.com/cangurudigital"
+              ],
               "founder": {
                 "@type": "Person",
-                "name": "Wesley Camelo"
+                "name": "Wesley Camelo",
+                "jobTitle": "Fundador & Diretor de Estratégia"
               }
             },
             {
@@ -182,33 +196,57 @@ export default function App() {
       case "/servicos/":
         title = "Serviços de Tráfego Pago & CRM | Canguru Digital";
         desc = "Atendimento comercial sob medida. Descubra nossas frentes de Tráfego Pago, Social Media estratégica, Identidade Visual, Landing Pages rápidas e Automação CRM.";
-        url = "https://cangurudigital.com.br/servicos/";
+        url = "https://www.cangurudigital.com.br/servicos/";
         jsonLd = {
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
           "name": "Serviços Canguru Digital",
-          "url": "https://cangurudigital.com.br/servicos/",
+          "url": "https://www.cangurudigital.com.br/servicos/",
           "description": desc,
           "provider": {
             "@type": "Organization",
-            "name": "Canguru Digital"
+            "name": "Canguru Digital",
+            "url": "https://www.cangurudigital.com.br"
           }
         };
         break;
       case "/sobre-nos/":
         title = "Sobre Nós | Canguru Digital | Operação Transparente";
         desc = "Conheça a história da Canguru Digital, fundada em 2018 por Wesley Camelo. Entenda nossa trajetória de serviços individuais a uma operação técnica com tecnologia própria.";
-        url = "https://cangurudigital.com.br/sobre-nos/";
+        url = "https://www.cangurudigital.com.br/sobre-nos/";
         break;
       case "/contato/":
         title = "Contato & Diagnóstico de Tráfego Pago | Canguru Digital";
         desc = "Entre em contato conosco e solicite um diagnóstico gratuito dos seus canais de vendas. Fale via formulário seguro ou diretamente por WhatsApp com o time.";
-        url = "https://cangurudigital.com.br/contato/";
+        url = "https://www.cangurudigital.com.br/contato/";
+        jsonLd = {
+          "@context": "https://schema.org",
+          "@type": ["LocalBusiness", "ProfessionalService"],
+          "@id": "https://www.cangurudigital.com.br/contato/#localbusiness",
+          "name": "Canguru Digital - Atendimento e Diagnóstico",
+          "url": "https://www.cangurudigital.com.br/contato/",
+          "telephone": "+55-11-99407-5149",
+          "email": "contato@cangurudigital.com.br",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Paulista, 1000",
+            "addressLocality": "São Paulo",
+            "addressRegion": "SP",
+            "postalCode": "01310-100",
+            "addressCountry": "BR"
+          },
+          "sameAs": [
+            "https://www.instagram.com/cangurudigital",
+            "https://www.linkedin.com/company/cangurudigital",
+            "https://www.facebook.com/cangurudigital"
+          ]
+        };
         break;
       case "/blog/":
         title = "Blog Canguru Analítica | Tráfego Pago, CRM & Automações";
         desc = "Artigos práticos, dados de campo de batalha e estratégias reais de tráfego pago para empresas. Leia análises brutas e diretas sobre o mercado digital de 2026.";
-        url = "https://cangurudigital.com.br/blog/";
+        url = "https://www.cangurudigital.com.br/blog/";
         type = "blog";
         break;
       default:
@@ -218,7 +256,7 @@ export default function App() {
           if (post) {
             title = `${post.title} | Blog Canguru Analítica`;
             desc = post.excerpt;
-            url = `https://cangurudigital.com.br/blog/${post.slug}/`;
+            url = `https://www.cangurudigital.com.br/blog/${post.slug}/`;
             type = "article";
             jsonLd = {
               "@context": "https://schema.org",
@@ -240,7 +278,7 @@ export default function App() {
                 "name": "Canguru Digital",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://cangurudigital.com.br/assets/images/logo_canguru_horizontal.png"
+                  "url": "https://www.cangurudigital.com.br/assets/images/logo_canguru_horizontal.png"
                 }
               },
               "datePublished": "2026-07-21T10:10:00-03:00",
@@ -270,7 +308,16 @@ export default function App() {
     updateMetaTag("property", "og:description", desc);
     updateMetaTag("property", "og:type", type);
     updateMetaTag("property", "og:url", url);
-    updateMetaTag("property", "og:image", "https://cangurudigital.com.br/assets/images/blog_budget_2026_1784653896023.jpg");
+    updateMetaTag("property", "og:image", "https://www.cangurudigital.com.br/assets/images/blog_budget_2026_1784653896023.jpg");
+
+    // Atualiza ou cria tag canonical auto-referenciada com www
+    let canonicalEl = document.querySelector('link[rel="canonical"]');
+    if (!canonicalEl) {
+      canonicalEl = document.createElement("link");
+      canonicalEl.setAttribute("rel", "canonical");
+      document.head.appendChild(canonicalEl);
+    }
+    canonicalEl.setAttribute("href", url);
 
     // Injeta JSON-LD de forma técnica e segura
     const scriptId = "canguru-json-ld";

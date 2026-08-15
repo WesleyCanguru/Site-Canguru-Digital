@@ -39,7 +39,7 @@ export default function Sobre({ navigateTo }: SobreProps) {
             Nossa História & Propósito
           </span>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.93] text-white">
-            Uma agência construída para não deixar cliente no escuro.
+            Sobre a Canguru Digital: Nossa História e Operação Transparente
           </h1>
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
             Nascemos em 2018 para combater a falta de clareza, os relatórios confusos e a lentidão que sufocam a relação entre agências tradicionais e empresas brasileiras.
@@ -156,7 +156,7 @@ export default function Sobre({ navigateTo }: SobreProps) {
                 "Não criamos apenas anúncios. Criamos sistemas que unem marketing, dados e processos comerciais para que nossos clientes tenham controle real sobre o que gera vendas."
               </p>
               <span className="text-[10px] font-extrabold uppercase tracking-widest text-white mt-3 block">
-                — Wesley Camelo
+                Wesley Camelo, fundador da Canguru
               </span>
             </div>
           </div>

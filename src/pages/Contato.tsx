@@ -87,7 +87,7 @@ export default function Contato({ navigateTo }: ContatoProps) {
         >
           <span className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#20364d] block">Fale com a agência</span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter leading-none text-white">
-            Vamos conversar sobre o seu negócio.
+            Contato e Diagnóstico Estratégico de Tráfego Pago
           </h1>
           <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
             Seja para tirar dúvidas, solicitar um diagnóstico completo de tráfego pago ou contratar nossa operação, nossa equipe está pronta para te atender de forma direta e sem burocracia.

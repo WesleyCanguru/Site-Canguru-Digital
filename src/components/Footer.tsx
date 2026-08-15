@@ -97,7 +97,7 @@ export default function Footer({ navigateTo }: FooterProps) {
 
           {/* Coluna 2: Navegação */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-white">Navegação</h4>
+            <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-white">Navegação</p>
             <ul className="space-y-3 text-xs font-bold uppercase tracking-widest">
               <li>
                 <button onClick={() => handleLinkClick("/")} className="hover:text-white cursor-pointer transition-colors">Home</button>
@@ -119,7 +119,7 @@ export default function Footer({ navigateTo }: FooterProps) {
 
           {/* Coluna 3: Captura Newsletter */}
           <div className="lg:col-span-4 space-y-4">
-            <h4 className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-white">Newsletter Inteligente</h4>
+            <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-white">Newsletter Inteligente</p>
             <p className="text-xs leading-relaxed max-w-xs text-slate-400">
               Receba análises brutas e estratégias práticas de tráfego pago e funis de CRM. Sem spam, sem enrolação.
             </p>

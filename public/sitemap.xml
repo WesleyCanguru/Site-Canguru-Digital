@@ -1,38 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://cangurudigital.com.br/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://www.cangurudigital.com.br/</loc>
+    <lastmod>2026-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://cangurudigital.com.br/servicos/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://www.cangurudigital.com.br/servicos/</loc>
+    <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cangurudigital.com.br/sobre-nos/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://www.cangurudigital.com.br/sobre-nos/</loc>
+    <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cangurudigital.com.br/contato/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://www.cangurudigital.com.br/contato/</loc>
+    <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cangurudigital.com.br/blog/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://www.cangurudigital.com.br/blog/</loc>
+    <lastmod>2026-08-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cangurudigital.com.br/blog/quanto-investir-em-anuncios/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://www.cangurudigital.com.br/blog/quanto-investir-em-anuncios/</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.cangurudigital.com.br/blog/por-que-pdf-fim-do-mes-nao-funciona/</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.cangurudigital.com.br/blog/crm-whatsapp-conversao/</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.cangurudigital.com.br/blog/landing-pages-de-alta-conversao/</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.cangurudigital.com.br/blog/estrategia-de-conteudo-para-trafego/</loc>
+    <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>

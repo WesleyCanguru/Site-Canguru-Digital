@@ -259,9 +259,9 @@ export default function BlogPost({ slug = "quanto-investir-em-anuncios", navigat
                   <span className="text-[9px] font-black uppercase tracking-wider text-[#20364d] block">
                     {rel.category}
                   </span>
-                  <h4 className="text-base font-black text-white group-hover:text-sky-300 transition-colors leading-tight">
+                  <span className="text-base font-black text-white group-hover:text-sky-300 transition-colors leading-tight block">
                     {rel.title}
-                  </h4>
+                  </span>
                   <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed">
                     {rel.excerpt}
                   </p>
@@ -283,9 +283,9 @@ export default function BlogPost({ slug = "quanto-investir-em-anuncios", navigat
       {/* CTA INTERNO DO BLOG */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden bg-[#111318] border-t border-white/10">
         <div className="max-w-4xl mx-auto space-y-6">
-          <h2 className="text-2xl sm:text-3xl font-black tracking-tighter leading-none text-white max-w-xl mx-auto">
+          <p className="text-2xl sm:text-3xl font-black tracking-tighter leading-none text-white max-w-xl mx-auto">
             Gostaria de aplicar esta estratégia no seu negócio com acompanhamento da Canguru?
-          </h2>
+          </p>
           <p className="text-xs sm:text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
             Solicite um diagnóstico comercial gratuito. Nós analisamos sua operação e entregamos um plano tático sob medida.
           </p>
