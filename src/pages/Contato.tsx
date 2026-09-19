@@ -6,7 +6,6 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { addLead } from "../lib/database";
-import wesleyFoto from "../assets/images/Wesley-Camelo-Fundador.jpeg";
 import { 
   MessageSquare, 
   Send, 
@@ -16,7 +15,8 @@ import {
   Phone, 
   MapPin, 
   ArrowUpRight, 
-  RefreshCw
+  RefreshCw,
+  ShieldCheck
 } from "lucide-react";
 
 interface ContatoProps {
@@ -168,18 +168,15 @@ export default function Contato({ navigateTo }: ContatoProps) {
               </div>
             </div>
 
-            {/* Foto do Fundador */}
+            {/* Garantia de Análise Sênior */}
             <div className="relative pt-6">
               <div className="flex items-center gap-3 bg-[#111318]/50 p-4 rounded-xl border border-white/10">
-                <img
-                  src={wesleyFoto}
-                  alt="Wesley Camelo"
-                  referrerPolicy="no-referrer"
-                  className="w-12 h-12 object-cover rounded-full border border-white/10 shrink-0"
-                />
+                <div className="w-10 h-10 rounded-full bg-[#20364d]/40 border border-[#20364d] flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-5 h-5 text-sky-400" />
+                </div>
                 <div>
-                  <h4 className="text-xs font-bold text-white leading-tight">Wesley Camelo</h4>
-                  <p className="text-[10px] text-slate-400 mt-0.5">Analisa pessoalmente todas as propostas comerciais enviadas.</p>
+                  <h4 className="text-xs font-bold text-white leading-tight">Nossa Liderança Operacional</h4>
+                  <p className="text-[10px] text-slate-400 mt-0.5">Cada proposta comercial é revisada pessoalmente pela nossa equipe de direção antes de chegar até você.</p>
                 </div>
               </div>
             </div>
