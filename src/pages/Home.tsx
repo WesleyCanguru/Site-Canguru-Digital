@@ -5,7 +5,7 @@ import EditorialServices from "../components/EditorialServices";
 import CountUp from "../components/CountUp";
 import TiltCard from "../components/TiltCard";
 import { addLead } from "../lib/database";
-import wesleyFoto from "../assets/images/Wesley-Camelo-Fundador.jpeg";
+import operacaoFoto from "../assets/images/canguru_team_office_1789824537548.jpg";
 import { 
   MessageSquare, 
   ChevronDown, 
@@ -238,19 +238,19 @@ export default function Home({ navigateTo }: HomeProps) {
             </div>
           </motion.div>
 
-          {/* Lado Direito: Imagem do Fundador com Parallax de Retardo */}
+          {/* Lado Direito: Imagem da Operação & Tecnologia com Parallax de Retardo */}
           <motion.div style={{ y: heroImageY }} className="lg:col-span-5 relative flex justify-center">
             <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-white/15 shadow-2xl bg-slate-950/60 p-3 group">
               <img
-                src={wesleyFoto}
-                alt="Wesley Camelo - Fundador Canguru Digital"
+                src={operacaoFoto}
+                alt="Operação e Direção Estratégica - Canguru Digital"
                 referrerPolicy="no-referrer"
-                className="w-full h-auto aspect-[3/4] object-cover object-top rounded-xl transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-auto aspect-[3/4] object-cover object-center rounded-xl transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute bottom-6 left-6 right-6 p-4 bg-[#0f1115]/95 border border-white/15 rounded-xl backdrop-blur-md">
-                <span className="text-[9px] font-black uppercase tracking-widest text-[#20364d] block">Fundação & Liderança</span>
-                <span className="text-sm font-black text-white block mt-1">Wesley Camelo</span>
-                <span className="text-xs text-slate-400 block mt-0.5">Fundador e Diretor de Estratégia</span>
+                <span className="text-[9px] font-black uppercase tracking-widest text-[#20364d] block">Direção Estratégica & Operacional</span>
+                <span className="text-sm font-black text-white block mt-1">Time Técnico Dedicado</span>
+                <span className="text-xs text-slate-400 block mt-0.5">Gestão contínua de tráfego, dados e conversão</span>
               </div>
             </div>
           </motion.div>

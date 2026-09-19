@@ -149,19 +149,6 @@ export default function App() {
               "telephone": "+55-11-99407-5149",
               "email": "contato@cangurudigital.com.br",
               "priceRange": "$$",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Av. Paulista, 1000",
-                "addressLocality": "São Paulo",
-                "addressRegion": "SP",
-                "postalCode": "01310-100",
-                "addressCountry": "BR"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": "-23.5614",
-                "longitude": "-46.6559"
-              },
               "openingHoursSpecification": {
                 "@type": "OpeningHoursSpecification",
                 "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -228,14 +215,6 @@ export default function App() {
           "telephone": "+55-11-99407-5149",
           "email": "contato@cangurudigital.com.br",
           "priceRange": "$$",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Av. Paulista, 1000",
-            "addressLocality": "São Paulo",
-            "addressRegion": "SP",
-            "postalCode": "01310-100",
-            "addressCountry": "BR"
-          },
           "sameAs": [
             "https://www.instagram.com/cangurudigital",
             "https://www.linkedin.com/company/cangurudigital",

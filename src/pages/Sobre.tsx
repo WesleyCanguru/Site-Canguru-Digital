@@ -7,7 +7,7 @@ import React from "react";
 import { motion } from "motion/react";
 import TiltCard from "../components/TiltCard";
 import { MessageSquare, Calendar, Award, ShieldCheck } from "lucide-react";
-import wesleyFoto from "../assets/images/Wesley-Camelo-Fundador.jpeg";
+import operacaoFoto from "../assets/images/canguru_team_office_1789824537548.jpg";
 
 interface SobreProps {
   navigateTo: (route: string) => void;
@@ -113,7 +113,7 @@ export default function Sobre({ navigateTo }: SobreProps) {
         </motion.div>
       </section>
 
-      {/* SEÇÃO QUEM TOCA A OPERAÇÃO */}
+      {/* SEÇÃO LIDERANÇA & EQUIPE TÉCNICA */}
       <section className="w-full py-24 px-6 sm:px-12 lg:px-20 border-b border-white/10 bg-[#0c0e12]">
         <motion.div 
           initial={{ opacity: 0, y: 35 }}
@@ -123,40 +123,45 @@ export default function Sobre({ navigateTo }: SobreProps) {
           className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
         >
           
-          {/* Lado Esquerdo: Foto do Fundador */}
+          {/* Lado Esquerdo: Imagem da Operação */}
           <div className="lg:col-span-5 relative flex justify-center lg:order-2">
             <TiltCard scale={1.02} maxTilt={8}>
               <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-white/15 shadow-2xl bg-slate-950/40 p-3 group">
                 <img
-                  src={wesleyFoto}
-                  alt="Wesley Camelo"
+                  src={operacaoFoto}
+                  alt="Operação e Equipe Técnica - Canguru Digital"
                   referrerPolicy="no-referrer"
-                  className="w-full h-auto aspect-[3/4] object-cover object-top rounded-xl transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-auto aspect-[3/4] object-cover object-center rounded-xl transition-transform duration-700 group-hover:scale-105"
                 />
+                <div className="absolute bottom-6 left-6 right-6 p-4 bg-[#0f1115]/95 border border-white/15 rounded-xl backdrop-blur-md">
+                  <span className="text-[9px] font-black uppercase tracking-widest text-[#20364d] block">Estrutura Técnica</span>
+                  <span className="text-sm font-black text-white block mt-1">Gestão de Alta Performance</span>
+                  <span className="text-xs text-slate-400 block mt-0.5">Tráfego pago, automação e inteligência comercial</span>
+                </div>
               </div>
             </TiltCard>
           </div>
 
-          {/* Lado Direito: Texto de Atuação */}
+          {/* Lado Direito: Texto de Atuação Institucional */}
           <div className="lg:col-span-7 space-y-6 lg:order-1">
             <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#20364d] block">
-              Liderança Operacional
+              Direção & Equipe Técnica
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-white">Quem toca a operação</h2>
+            <h2 className="text-3xl sm:text-4xl font-black text-white">Quem conduz a operação</h2>
             
             <p className="text-sm text-slate-300 leading-relaxed font-medium">
-              Wesley Camelo é o fundador e diretor de estratégia e tráfego da Canguru Digital. Com formação voltada à tecnologia aplicada e anos de imersão no mercado de tráfego pago de alta performance, ele atua ativamente no desenho estratégico e nas otimizações técnicas de todas as contas da agência.
+              A operação da Canguru Digital é dirigida por uma equipe técnica especializada que une gestão de tráfego pago de alta performance, inteligência de dados, tecnologia web e engenharia de processos comerciais. Cada conta é conduzida com visão tática integrada e acompanhamento contínuo de resultados.
             </p>
             <p className="text-sm text-slate-300 leading-relaxed font-semibold">
-              Na Canguru, o fundador não é apenas uma figura comercial que vende o projeto e desaparece. Ele lidera pessoalmente a mesa estratégica de tráfego e a aprovação de todas as campanhas e esteiras de vendas que colocamos no ar.
+              Em vez do modelo tradicional de agência em que o projeto é vendido por um executivo e terceirizado sem supervisão, nossa estrutura conta com profissionais seniores acompanhando a execução diária, analisando métricas reais e realizando ajustes constantes no funil de vendas dos nossos clientes.
             </p>
 
             <div className="p-6 bg-[#111318] rounded-xl border border-white/10 border-l-4 border-l-[#20364d]">
               <p className="text-xs sm:text-sm italic text-slate-300 leading-relaxed">
                 "Não criamos apenas anúncios. Criamos sistemas que unem marketing, dados e processos comerciais para que nossos clientes tenham controle real sobre o que gera vendas."
               </p>
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-white mt-3 block">
-                Wesley Camelo, fundador da Canguru
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mt-3 block">
+                Compromisso Institucional Canguru Digital
               </span>
             </div>
           </div>
