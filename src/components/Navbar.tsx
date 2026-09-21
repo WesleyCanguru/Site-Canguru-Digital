@@ -67,6 +67,18 @@ export default function Navbar({ currentRoute, navigateTo }: NavbarProps) {
                   </button>
                 );
               })}
+
+              {/* Seletor de Idioma (Link Externo EN) */}
+              <a
+                href="https://cangurudigitalgroup.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-slate-300 hover:text-white py-1.5 px-2.5 rounded-lg border border-white/15 bg-white/5 hover:bg-white/10 hover:border-white/30 transition-all cursor-pointer"
+                title="Versão em Inglês / English Version"
+              >
+                <span className="text-sm leading-none" role="img" aria-label="English">🇺🇸</span>
+                <span>EN</span>
+              </a>
             </div>
 
             <div className="h-5 w-[1px] bg-white/10" />
@@ -129,6 +141,21 @@ export default function Navbar({ currentRoute, navigateTo }: NavbarProps) {
                 </button>
               );
             })}
+
+            {/* Seletor de Idioma Mobile (Link Externo EN) */}
+            <a
+              href="https://cangurudigitalgroup.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+              className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-widest text-slate-300 hover:text-white bg-white/5 border border-white/10 transition-all"
+            >
+              <span className="flex items-center gap-2">
+                <span className="text-sm leading-none" role="img" aria-label="English">🇺🇸</span>
+                <span>English (EN)</span>
+              </span>
+              <span className="text-[10px] text-slate-400 font-medium lowercase">cangurudigitalgroup.com</span>
+            </a>
 
             <div className="pt-2 border-t border-slate-850/40">
               <button
