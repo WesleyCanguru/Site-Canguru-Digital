@@ -9,6 +9,7 @@ import blogPdf from "../assets/images/blog_pdf_reports_1784740387120.jpg";
 import blogWhatsapp from "../assets/images/blog_whatsapp_crm_1784740401668.jpg";
 import blogLanding from "../assets/images/blog_landing_pages_1784740416071.jpg";
 import blogContent from "../assets/images/blog_content_strategy_1784740428926.jpg";
+import blogAjusteLocal from "../assets/images/service_trafego_pago_1784745972008.jpg";
 
 export interface BlogPostItem {
   slug: string;
@@ -29,10 +30,112 @@ export interface BlogPostItem {
     list?: string[];
   }[];
   faqs?: { q: string; a: string }[];
+  /** Fontes do post. Com url vira link; sem url, só texto (ex.: e-mail recebido). */
+  sources?: { label: string; url?: string }[];
   summary: string;
 }
 
 export const BLOG_POSTS: BlogPostItem[] = [
+  {
+    slug: "ajuste-local-google-ads-2027",
+    title: "Ajuste local do Google Ads: 2,9% a mais em 2027 e o que fazer",
+    excerpt: "O Google Ads cobra 2,9% de ajuste local a partir de 1º/01/2027 nas contas faturadas no Brasil. Veja quem paga, o efeito na conta pré-paga e o que fazer.",
+    date: "24 Novembro, 2026",
+    category: "Tráfego Pago",
+    readTime: "6 min de leitura",
+    image: blogAjusteLocal, // provisória: trocar pela capa "2,9%" quando a Sarah entregar
+    author: "Wesley Camelo",
+    authorRole: "Fundador & Diretor de Estratégia",
+    authorAvatar: wesleyAvatar,
+    featured: false,
+    intro: "Resposta curta: o ajuste local do Google Ads (nome oficial: Ajuste Local de Preços de Anúncios) é uma cobrança de 2,9% sobre o custo de publicidade de toda conta faturada pelo Google Brasil em reais, a partir de 1º de janeiro de 2027. Na conta pós-paga, ele vem numa linha separada da fatura; na pré-paga (Pix, boleto ou cartão), sai do saldo. Não há nada para configurar, mas o orçamento de 2027 precisa contar com ele, e o IBS e a CBS incidem sobre o valor já com o ajuste.",
+    sections: [
+      {
+        heading: "1. O que é o ajuste local do Google Ads",
+        content: [
+          "Em 16 de novembro de 2026, a equipe do Google Payments mandou um e-mail para os anunciantes com contas faturadas no Brasil. A Canguru recebeu o aviso na conta da agência. Os pontos principais do aviso e da página oficial do Ajuste Local de Preços de Anúncios na Central de Ajuda do Google Ads (link nas fontes, no fim do artigo):"
+        ],
+        list: [
+          "Quanto: 2,9% sobre os custos de publicidade.",
+          "Desde quando: 1º de janeiro de 2027.",
+          "Onde: Google Ads, Display & Video 360 (DV360) e Reservas do YouTube, tanto em leilão quanto em reserva.",
+          "Como aparece: linha separada na fatura das contas pós-pagas; desconto direto no saldo das contas pré-pagas.",
+          "Na nota fiscal: o ajuste não aparece separado. Ele entra no valor do serviço, junto com o custo dos anúncios, e os impostos são calculados sobre esse total.",
+          "O que não muda: segundo o Google, outras plataformas e serviços do Google não são afetados."
+        ]
+      },
+      {
+        heading: "2. Quem paga: vale para a sua conta?",
+        content: [
+          "O e-mail fecha com \"Nenhuma ação é necessária neste momento\". Para a conta, é verdade: nada para configurar. Para o seu caixa, não.",
+          "O que decide é quem fatura a sua conta, e não onde os anúncios aparecem. O Google é explícito: o ajuste depende só do perfil de pagamento e da empresa que emite a fatura."
+        ],
+        list: [
+          "Conta faturada pelo Google Brasil, pagando em reais: o ajuste se aplica.",
+          "Conta brasileira com campanhas mostradas fora do Brasil: se aplica, se a fatura for do Google Brasil em reais.",
+          "Exclusão de locais ou segmentação só por cidade: não muda nada, o ajuste continua.",
+          "Meta Ads, TikTok Ads e outras plataformas: este ajuste é do Google e não vale para elas.",
+          "Para conferir no Google Ads: menu Faturamento > Transações. A partir de janeiro, o ajuste aparece ali."
+        ]
+      },
+      {
+        heading: "3. Quanto o Google Ads fica mais caro, na prática",
+        content: [
+          "Pense num escritório de advocacia que investe R$ 3.000 por mês no Google Ads e paga cerca de R$ 60 por contato no WhatsApp (valores de exemplo, para fazer a conta). A partir de janeiro de 2027:"
+        ],
+        list: [
+          "Investimento em anúncios no mês: R$ 3.000,00 (igual a hoje).",
+          "Ajuste local de 2,9%: R$ 87,00 por mês.",
+          "Total antes de IBS/CBS: R$ 3.087,00.",
+          "Custo por contato: de R$ 60,00 para R$ 61,74, sem a campanha piorar.",
+          "A mais no ano: R$ 1.044,00."
+        ]
+      },
+      {
+        heading: "4. O ajuste não vem sozinho",
+        content: [
+          "R$ 87 por mês parece pouco. Mas, se o orçamento do escritório é fechado em R$ 3.000 e ninguém ajustar nada, quem resolve a diferença é o financeiro, todo mês, sem ter planejado.",
+          "No mesmo 1º de janeiro começa a cobrança da CBS e do IBS da reforma tributária, que o Google calcula sobre o valor já com o ajuste. A alíquota final ainda não foi definida, então qualquer número hoje é estimativa."
+        ],
+      },
+      {
+        heading: "5. Conta pré-paga: o saldo rende menos",
+        content: [
+          "Muito pequeno anunciante paga o Google Ads antes, por Pix, boleto ou cartão. Nesse caso, o ajuste é descontado do saldo. Na prática, o mesmo depósito compra menos anúncio.",
+          "O exemplo da própria Central de Ajuda, que o Google marca como \"apenas para fins de demonstração\", usa uma alíquota simulada de 11,4% para CBS/IBS: um depósito de R$ 100 vira R$ 88,09 de saldo disponível para anúncios. Dois efeitos disso:"
+        ],
+        list: [
+          "A campanha para antes do previsto. Se você deposita no dia 1 contando que o saldo dura o mês todo, ele vai acabar alguns dias antes.",
+          "O saldo pode ficar negativo. O Google avisa que o ajuste pode ser aplicado depois que o depósito já foi usado; o valor em aberto sai do próximo depósito."
+        ]
+      },
+      {
+        heading: "6. O que fazer agora na sua conta",
+        content: [],
+        list: [
+          "Refaça o orçamento de 2027. Some 2,9% à verba de Google Ads e deixe uma margem para CBS/IBS até a alíquota sair. Se o teto do mês é fixo, divida por 1,029 para achar quanto pode ir para as campanhas (R$ 3.000 ÷ 1,029 = R$ 2.915,45).",
+          "Ajuste as metas de custo. Custo por contato, por lead e por contrato sobem 2,9% sem a campanha piorar. Atualize as metas e os lances de CPA e ROAS desejados para não ler esse aumento como queda de desempenho.",
+          "Recalcule o depósito das contas pré-pagas. Deposite já contando com o ajuste e os impostos, ou programe um depósito extra no meio do mês para a campanha não parar.",
+          "Avise o financeiro e o contador. O ajuste não aparece separado na nota fiscal. Quem confere a NF contra o painel do Google vai ver uma diferença e precisa saber de onde ela vem.",
+          "Confira a fatura de janeiro. Em Faturamento > Transações, veja se o ajuste apareceu e se bate com 2,9% do custo do mês."
+        ]
+      }
+    ],
+    faqs: [
+      { q: "Quando o ajuste local do Google Ads começa a valer?", a: "Em 1º de janeiro de 2027. A partir dessa data, o Google cobra 2,9% sobre o custo de publicidade das contas de Google Ads, DV360 e Reservas do YouTube faturadas pelo Google Brasil em reais." },
+      { q: "Excluir locais da campanha evita o ajuste de 2,9%?", a: "Não. O ajuste depende de quem fatura a conta (Google Brasil, em reais), e não de onde os anúncios aparecem. Uma campanha mostrada só numa cidade paga o ajuste do mesmo jeito." },
+      { q: "Como fica o ajuste na conta pré-paga (Pix, boleto ou cartão)?", a: "O ajuste é descontado do saldo disponível, então o mesmo depósito compra menos anúncio. Se o saldo já tiver sido usado, o valor em aberto é descontado do próximo depósito." },
+      { q: "O ajuste aparece na nota fiscal?", a: "Não como linha separada. Ele entra no valor do serviço de publicidade, e os impostos são calculados sobre esse total. Na fatura das contas pós-pagas, ele aparece separado." },
+      { q: "O ajuste local é o mesmo que o IBS e a CBS?", a: "Não. São duas coisas diferentes que começam no mesmo dia. O ajuste de 2,9% é do Google; CBS e IBS são tributos da reforma tributária, calculados sobre o valor que já inclui o ajuste." },
+      { q: "O ajuste de 2,9% vale para o Meta Ads?", a: "Não. É um ajuste do Google, para Google Ads, DV360 e Reservas do YouTube. O próprio aviso diz que outras plataformas e serviços do Google não são afetados." },
+      { q: "Preciso mudar alguma configuração na conta?", a: "Não. O Google aplica o ajuste sozinho. O que muda é o seu planejamento: orçamento, metas de custo e depósitos." }
+    ],
+    summary: "O aumento é pequeno, mas é certo e começa em 1º de janeiro. Quem refaz o orçamento agora entra em 2027 com as metas certas; quem deixa para depois vai achar que a campanha piorou em janeiro, quando o que mudou foi o preço. Se você quer que a gente revise a sua conta do Google Ads para 2027 (orçamento, metas de custo e depósitos), fale com a Canguru pelo WhatsApp. Para escritórios de advocacia, o Diagnóstico do Google (R$ 690, entregue em 48h) já inclui essa revisão.",
+    sources: [
+      { label: "Google Ads, Central de Ajuda: Ajuste Local de Preços de Anúncios no Brasil", url: "https://support.google.com/google-ads/answer/18857390?hl=pt-BR" },
+      { label: "Google Payments: e-mail \"Google Ads, DV360 e Reservas do YouTube: ajuste na sua conta no Brasil a partir de 1º de janeiro de 2027\", recebido pela Canguru Digital em 16/11/2026." }
+    ]
+  },
   {
     slug: "quanto-investir-em-anuncios",
     title: "Quanto devo investir em anúncios no Instagram e Google em 2026?",
