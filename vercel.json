@@ -1,4 +1,11 @@
 {
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/sobre", "destination": "/sobre-nos/", "permanent": true },
+    { "source": "/sobre/", "destination": "/sobre-nos/", "permanent": true },
+    { "source": "/blog/quanto-investir-em-anuncios-pagos", "destination": "/blog/quanto-investir-em-anuncios/", "permanent": true },
+    { "source": "/blog/quanto-investir-em-anuncios-pagos/", "destination": "/blog/quanto-investir-em-anuncios/", "permanent": true }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

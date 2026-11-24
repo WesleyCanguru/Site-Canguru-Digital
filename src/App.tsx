@@ -17,42 +17,18 @@ import Sobre from "./pages/Sobre";
 import Contato from "./pages/Contato";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
-import { getPostBySlug } from "./data/blogPosts";
+import Cases from "./pages/Cases";
+import CasePost from "./pages/CasePost";
+import { parsePathToRoute, getRouteMeta, Route } from "./seo";
 
-type Route = string;
+interface AppProps {
+  /** Rota usada na pré-renderização do build (no navegador, vem da URL). */
+  initialRoute?: Route;
+}
 
-// Utilitário para mapear e normalizar o path do navegador para uma rota conhecida da agência
-const parsePathToRoute = (path: string): Route => {
-  // Remove querystrings e hashes
-  const urlWithoutQuery = path.split("?")[0].split("#")[0];
-  // Normaliza string removendo barras duplicadas ou finais
-  const cleanPath = urlWithoutQuery.trim().toLowerCase().replace(/\/+$/, "");
-
-  if (cleanPath === "" || cleanPath === "/" || cleanPath === "/index.html") return "/";
-  if (cleanPath === "/servicos" || cleanPath === "/servicos/") return "/servicos/";
-  if (cleanPath === "/sobre-nos" || cleanPath === "/sobre" || cleanPath === "/sobre-nos/") return "/sobre-nos/";
-  if (cleanPath === "/contato" || cleanPath === "/contato/") return "/contato/";
-  if (cleanPath === "/blog" || cleanPath === "/blog/") return "/blog/";
-
-  // Suporte dinâmico a qualquer post do blog (/blog/slug ou /blog/slug/)
-  if (cleanPath.startsWith("/blog/")) {
-    const slug = cleanPath.replace(/^\/blog\//, "").trim();
-    if (slug) {
-      return `/blog/${slug}/`;
-    }
-    return "/blog/";
-  }
-
-  // Fallback seguro caso a rota seja um prefixo
-  if (cleanPath.startsWith("/servicos")) return "/servicos/";
-  if (cleanPath.startsWith("/sobre")) return "/sobre-nos/";
-  if (cleanPath.startsWith("/contato")) return "/contato/";
-
-  return "/";
-};
-
-export default function App() {
+export default function App({ initialRoute }: AppProps = {}) {
   const [currentRoute, setCurrentRoute] = useState<Route>(() => {
+    if (initialRoute) return initialRoute;
     if (typeof window !== "undefined") {
       return parsePathToRoute(window.location.pathname);
     }
@@ -81,12 +57,12 @@ export default function App() {
 
   // Inicializa a rota baseada na URL atual do navegador no primeiro carregamento
   useEffect(() => {
-    const initialRoute = parsePathToRoute(window.location.pathname);
-    setCurrentRoute(initialRoute);
+    const routeFromUrl = parsePathToRoute(window.location.pathname);
+    setCurrentRoute(routeFromUrl);
 
     // Garante que se o usuário acessar /contato sem barra, a URL seja normalizada de forma transparente
-    if (window.location.pathname !== initialRoute && window.location.pathname !== "/") {
-      window.history.replaceState({}, "", initialRoute);
+    if (window.location.pathname !== routeFromUrl && window.location.pathname !== "/") {
+      window.history.replaceState({}, "", routeFromUrl);
     }
 
     // Escuta eventos de "Voltar" e "Avançar" do navegador para roteamento orgânico
@@ -108,165 +84,9 @@ export default function App() {
   };
 
   // Gerenciamento Dinâmico de Metadados SEO & Injeção de JSON-LD estruturado
+  // (mesmos dados que o build grava no HTML de cada rota, em src/seo.ts)
   useEffect(() => {
-    let title = "Canguru Digital | Tráfego Pago e Controle Operacional";
-    let desc = "A Canguru não vende marketing, entrega controle. Tráfego pago focado em ROI, conteúdo estratégico de autoridade e plataforma operacional própria em tempo real.";
-    let type = "website";
-    let url = "https://www.cangurudigital.com.br/";
-    let jsonLd: any = null;
-
-    const faqHome = [
-      {
-        q: "Tráfego pago garante mais vendas?",
-        a: "Não. Tráfego pago garante a atenção qualificada de pessoas que buscam o seu produto ou serviço. A venda em si depende de outros pilares como velocidade de carregamento da página, oferta, autoridade da marca e atendimento comercial."
-      },
-      {
-        q: "Quanto custa investir em anúncios?",
-        a: "O valor mínimo diário é de cerca de R$ 6,00. Contudo, para obter ROI sustentável em 2026, recomendamos começar com pelo menos R$ 1.500 a R$ 2.000 mensais de verba de anúncios."
-      },
-      {
-        q: "Quanto tempo até ver resultado?",
-        a: "Os primeiros leads qualificados costumam surgir nas primeiras 48h a 72h após ativação das campanhas, com estabilização matemática do funil ocorrendo entre o primeiro e segundo mês."
-      }
-    ];
-
-    switch (currentRoute) {
-      case "/":
-        title = "Canguru Digital | Tráfego Pago e Controle Operacional";
-        desc = "A Canguru não vende marketing, entrega controle. Tráfego pago focado em ROI, conteúdo estratégico de autoridade e plataforma operacional própria em tempo real.";
-        url = "https://www.cangurudigital.com.br/";
-        jsonLd = {
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
-              "@id": "https://www.cangurudigital.com.br/#organization",
-              "name": "Canguru Digital",
-              "legalName": "Canguru Digital",
-              "image": "https://www.cangurudigital.com.br/assets/images/Wesley-Camelo-Fundador.jpeg",
-              "logo": "https://www.cangurudigital.com.br/assets/images/logo_canguru_horizontal.png",
-              "url": "https://www.cangurudigital.com.br",
-              "telephone": "+55-11-99407-5149",
-              "email": "contato@cangurudigital.com.br",
-              "priceRange": "$$",
-              "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                "opens": "09:00",
-                "closes": "18:00"
-              },
-              "sameAs": [
-                "https://www.instagram.com/cangurudigital",
-                "https://www.linkedin.com/company/cangurudigital",
-                "https://www.facebook.com/cangurudigital"
-              ],
-              "founder": {
-                "@type": "Person",
-                "name": "Wesley Camelo",
-                "jobTitle": "Fundador & Diretor de Estratégia"
-              }
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": faqHome.map(item => ({
-                "@type": "Question",
-                "name": item.q,
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": item.a
-                }
-              }))
-            }
-          ]
-        };
-        break;
-      case "/servicos/":
-        title = "Serviços de Tráfego Pago & CRM | Canguru Digital";
-        desc = "Atendimento comercial sob medida. Descubra nossas frentes de Tráfego Pago, Social Media estratégica, Identidade Visual, Landing Pages rápidas e Automação CRM.";
-        url = "https://www.cangurudigital.com.br/servicos/";
-        jsonLd = {
-          "@context": "https://schema.org",
-          "@type": "ProfessionalService",
-          "name": "Serviços Canguru Digital",
-          "url": "https://www.cangurudigital.com.br/servicos/",
-          "description": desc,
-          "provider": {
-            "@type": "Organization",
-            "name": "Canguru Digital",
-            "url": "https://www.cangurudigital.com.br"
-          }
-        };
-        break;
-      case "/sobre-nos/":
-        title = "Sobre Nós | Canguru Digital | Operação Transparente";
-        desc = "Conheça a história da Canguru Digital, fundada em 2018 por Wesley Camelo. Entenda nossa trajetória de serviços individuais a uma operação técnica com tecnologia própria.";
-        url = "https://www.cangurudigital.com.br/sobre-nos/";
-        break;
-      case "/contato/":
-        title = "Contato & Diagnóstico de Tráfego Pago | Canguru Digital";
-        desc = "Entre em contato conosco e solicite um diagnóstico gratuito dos seus canais de vendas. Fale via formulário seguro ou diretamente por WhatsApp com o time.";
-        url = "https://www.cangurudigital.com.br/contato/";
-        jsonLd = {
-          "@context": "https://schema.org",
-          "@type": ["LocalBusiness", "ProfessionalService"],
-          "@id": "https://www.cangurudigital.com.br/contato/#localbusiness",
-          "name": "Canguru Digital - Atendimento e Diagnóstico",
-          "url": "https://www.cangurudigital.com.br/contato/",
-          "telephone": "+55-11-99407-5149",
-          "email": "contato@cangurudigital.com.br",
-          "priceRange": "$$",
-          "sameAs": [
-            "https://www.instagram.com/cangurudigital",
-            "https://www.linkedin.com/company/cangurudigital",
-            "https://www.facebook.com/cangurudigital"
-          ]
-        };
-        break;
-      case "/blog/":
-        title = "Blog Canguru Analítica | Tráfego Pago, CRM & Automações";
-        desc = "Artigos práticos, dados de campo de batalha e estratégias reais de tráfego pago para empresas. Leia análises brutas e diretas sobre o mercado digital de 2026.";
-        url = "https://www.cangurudigital.com.br/blog/";
-        type = "blog";
-        break;
-      default:
-        if (currentRoute.startsWith("/blog/")) {
-          const postSlug = currentRoute.replace(/^\/blog\//, "").replace(/\/+$/, "");
-          const post = getPostBySlug(postSlug);
-          if (post) {
-            title = `${post.title} | Blog Canguru Analítica`;
-            desc = post.excerpt;
-            url = `https://www.cangurudigital.com.br/blog/${post.slug}/`;
-            type = "article";
-            jsonLd = {
-              "@context": "https://schema.org",
-              "@type": "Article",
-              "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": url
-              },
-              "headline": post.title,
-              "description": desc,
-              "image": post.image,
-              "author": {
-                "@type": "Person",
-                "name": post.author,
-                "jobTitle": post.authorRole
-              },
-              "publisher": {
-                "@type": "Organization",
-                "name": "Canguru Digital",
-                "logo": {
-                  "@type": "ImageObject",
-                  "url": "https://www.cangurudigital.com.br/assets/images/logo_canguru_horizontal.png"
-                }
-              },
-              "datePublished": "2026-07-21T10:10:00-03:00",
-              "dateModified": "2026-07-21T10:10:00-03:00"
-            };
-          }
-        }
-        break;
-    }
+    const { title, description: desc, url, type, image, jsonLd } = getRouteMeta(currentRoute);
 
     // Atualiza cabeçalho
     document.title = title;
@@ -287,7 +107,7 @@ export default function App() {
     updateMetaTag("property", "og:description", desc);
     updateMetaTag("property", "og:type", type);
     updateMetaTag("property", "og:url", url);
-    updateMetaTag("property", "og:image", "https://www.cangurudigital.com.br/assets/images/blog_budget_2026_1784653896023.jpg");
+    updateMetaTag("property", "og:image", image);
 
     // Atualiza ou cria tag canonical auto-referenciada com www
     let canonicalEl = document.querySelector('link[rel="canonical"]');
@@ -326,6 +146,11 @@ export default function App() {
     if (currentRoute.startsWith("/blog/")) {
       const slug = currentRoute.replace(/^\/blog\//, "").replace(/\/+$/, "");
       return <BlogPost slug={slug} navigateTo={navigateTo} />;
+    }
+    if (currentRoute === "/cases/") return <Cases navigateTo={navigateTo} />;
+    if (currentRoute.startsWith("/cases/")) {
+      const slug = currentRoute.replace(/^\/cases\//, "").replace(/\/+$/, "");
+      return <CasePost slug={slug} navigateTo={navigateTo} />;
     }
     return <Home navigateTo={navigateTo} />;
   };
