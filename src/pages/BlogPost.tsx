@@ -217,6 +217,33 @@ export default function BlogPost({ slug = "quanto-investir-em-anuncios", navigat
             </div>
           </div>
 
+          {/* FONTES DO POST (CASO EXISTAM) */}
+          {post.sources && post.sources.length > 0 && (
+            <div className="pt-8">
+              <h3 className="text-lg font-black text-white uppercase tracking-tight mb-3">
+                Fontes
+              </h3>
+              <ul className="list-disc pl-5 space-y-2 text-slate-300 font-medium text-sm">
+                {post.sources.map((source, sIdx) => (
+                  <li key={sIdx} className="leading-relaxed">
+                    {source.url ? (
+                      <a
+                        href={source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sky-400 underline underline-offset-2 hover:text-sky-300"
+                      >
+                        {source.label}
+                      </a>
+                    ) : (
+                      source.label
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
         </div>
       </section>
 
